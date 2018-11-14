@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-  helper_method :current_user, :logged_in, :ensure_logged_in
+  helper_method :current_user, :logged_in?, :ensure_logged_in
 
   def current_user
     return nil unless session[:session_token]
