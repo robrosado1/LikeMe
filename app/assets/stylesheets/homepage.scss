@@ -1,0 +1,85 @@
+#root {
+  background-color: #edf0f5;
+}
+
+.header {
+  width: 980px;
+  height: 82px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.loggedout-header {
+  margin: 25px 0;
+}
+
+.topbar {
+  background-color: #44579b;
+  background-image: linear-gradient(#456ba6, #325a9c);
+  border-bottom: 1px solid #293586;
+}
+
+.app-name {
+  color: #ffffff;
+  margin-top: 0;
+  font-family: 'Muli', sans-serif;
+  font-size: 36px;
+}
+
+.login-form-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.login-form-email-section, .login-form-password-section {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.login-form-email-label, .login-form-password-label {
+  color: #f0f4f8;
+  font-family: sans-serif;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: row;
+}
+
+.login-input {
+  background-color: #ffffff;
+  border: 1px solid #1a295e;
+  height: 22px;
+  width: 150px;
+}
+
+.session-submit {
+  background-color: #3668b8;
+  box-sizing: content-box;
+  font-size: 12px;
+  color: #ffffff;
+  font-weight: 700;
+  border: 1px solid #1e4981;
+  border-radius: 2px;
+  height: 22px;
+  padding: 0 5px 0 5px;
+  align-self: flex-end;
+  margin-bottom: 10px;
+  margin-left: 5px;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: row;
+}
+
+.main-left, .main-right {
+  height: 500px;
+  width: 100%;
+}

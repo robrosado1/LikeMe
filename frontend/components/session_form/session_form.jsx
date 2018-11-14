@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-class SessionForm extends React.Component {
+class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,7 +20,7 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user);
+    this.props.login(user);
   }
 
   renderErrors() {
@@ -39,27 +39,28 @@ class SessionForm extends React.Component {
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
-          Please {this.props.formType} or {this.props.navLink}
           {this.renderErrors()}
           <div className="login-form">
             <br/>
-            <label>Email:
+            <div className="login-form-email-section">
+              <label className="login-form-email-label">Email</label>
               <input type="text"
                 value={this.state.email}
                 onChange={this.update('email')}
                 className="login-input"
               />
-            </label>
+            </div>
             <br/>
-            <label>Password:
+            <div className="login-form-password-section">
+              <label className="login-form-password-label">Password</label>
               <input type="password"
                 value={this.state.password}
                 onChange={this.update('password')}
                 className="login-input"
               />
-            </label>
+            </div>
             <br/>
-            <input className="session-submit" type="submit" value={this.props.formType} />
+            <input className="session-submit" type="submit" value="Log In" />
           </div>
         </form>
       </div>
@@ -67,4 +68,4 @@ class SessionForm extends React.Component {
   }
 }
 
-export default withRouter(SessionForm);
+export default withRouter(LoginForm);

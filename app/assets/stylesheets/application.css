@@ -14,26 +14,6 @@
  *= require_self
  */
 
- html {
-   background-color: #edf0f5;
- }
-
- header {
-   background: #44579b;
- }
-
- h1 {
-   color: #ffffff;
-   margin-top: 0;
-   font-family: 'Muli', sans-serif;
-   font-weight: 400;
- }
-
- body {
-   color: black;
-   margin: 0;
- }
- header {
-   height: 82px;
-   border-bottom: 1px solid #293586;
- }
+html {
+  background-color: #edf0f5;
+}
