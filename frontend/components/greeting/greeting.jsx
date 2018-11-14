@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 
 const Greeting = ({ currentUser, logout }) => {
   const sessionLinks = () => (
-    <nav className="login-signup">
-      <span><Link to="/login">Login</Link> or <Link to="/signup">Sign up!</Link></span>
-    </nav>
+    <div className="loggedout-header">
+      <h1 className="app-name">~likeme~</h1>
+    </div>
   );
   const personalGreeting = () => (
     <hgroup className="header-group">
