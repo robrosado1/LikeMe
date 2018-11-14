@@ -25,7 +25,7 @@ class LoginForm extends React.Component {
 
   renderErrors() {
     return(
-      <ul>
+      <ul className="login-errors">
         {this.props.errors.map((error, i) => (
           <li key={`error-${i}`}>
             {error}
@@ -39,7 +39,7 @@ class LoginForm extends React.Component {
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
-          {this.renderErrors()}
+
           <div className="login-form">
             <br/>
             <div className="login-form-email-section">
@@ -60,9 +60,10 @@ class LoginForm extends React.Component {
               />
             </div>
             <br/>
-            <input className="session-submit" type="submit" value="Log In" />
+            <input className="login-submit-button" type="submit" value="Log In" />
           </div>
         </form>
+        {this.renderErrors()}
       </div>
     );
   }

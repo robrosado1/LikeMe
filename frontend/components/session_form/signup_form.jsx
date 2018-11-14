@@ -25,7 +25,7 @@ class SignupForm extends React.Component {
 
   renderErrors() {
     return(
-      <ul>
+      <ul className="signup-errors">
         {this.props.errors.map((error, i) => (
           <li key={`error-${i}`}>
             {error}
@@ -38,39 +38,41 @@ class SignupForm extends React.Component {
   render() {
     return (
       <div className="signup-form-container">
+        <h2 className="signup-headline">Sign Up</h2>
+        <h4 className="signup-subheadline">It's free and always will be.</h4>
         <form onSubmit={this.handleSubmit} className="signup-form-box">
-          {this.renderErrors()}
           <div className="signup-form">
             <br/>
               <div className="signup-form-name-section">
-                <label className="signup-form-name-label">Name</label>
                 <input type="text"
                   value={this.state.name}
                   onChange={this.update('name')}
                   className="signup-input"
+                  placeholder="Name"
                 />
               </div>
               <br/>
             <div className="signup-form-email-section">
-              <label className="signup-form-email-label">Email</label>
               <input type="text"
                 value={this.state.email}
                 onChange={this.update('email')}
                 className="signup-input"
+                placeholder="Email"
               />
             </div>
             <br/>
             <div className="signup-form-password-section">
-              <label className="signup-form-password-label">Password</label>
               <input type="password"
                 value={this.state.password}
                 onChange={this.update('password')}
                 className="signup-input"
+                placeholder="Password"
               />
             </div>
             <br/>
-            <input className="session-submit" type="submit" value="Log In" />
+            <input className="signup-submit-button" type="submit" value="Sign Up" />
           </div>
+          {this.renderErrors()}
         </form>
       </div>
     );
