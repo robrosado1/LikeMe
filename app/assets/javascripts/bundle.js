@@ -335,9 +335,24 @@ __webpack_require__.r(__webpack_exports__);
 var HomePageLeft = function HomePageLeft() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "homepage-left"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Connect with friends and the world around you on Likeme."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Connect with friends and the world around you on Likeme."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     className: "info-list"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "See photos and updates"), " from friends in News Feed."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "Share what's new"), " in your life on your Timeline."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "Find more"), " of what you're looking for with Facebook Search.")));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    className: "homepage-list-element"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "homepage-image",
+    src: "https://scontent-lga3-1.xx.fbcdn.net/v/t39.2365-6/32964924_188362901982436_5189181917978689536_n.png?_nc_cat=1&_nc_ht=scontent-lga3-1.xx&oh=dee379e6cff10be3d31bf41415e4b40a&oe=5C825DA3"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "See photos and updates"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "from friends in News Feed.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    className: "homepage-list-element"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "homepage-image",
+    src: "https://scontent-lga3-1.xx.fbcdn.net/v/t39.2365-6/32967637_1400301410075884_2994305350271762432_n.png?_nc_cat=108&_nc_ht=scontent-lga3-1.xx&oh=0e01899fb81999738d4b9e4b6de29cef&oe=5C854AB0"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "Share what's new"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "in your life on your Timeline.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    className: "homepage-list-element"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "homepage-image",
+    src: "https://scontent-lga3-1.xx.fbcdn.net/v/t39.2365-6/33137320_1687624661315903_5362007326045765632_n.png?_nc_cat=1&_nc_ht=scontent-lga3-1.xx&oh=772c0a7a90088f8ab76f4487ef20daa1&oe=5C765505"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "Find more"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "of what you're looking for with Facebook Search."))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (HomePageLeft);
