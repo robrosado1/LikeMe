@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   end
 
   def ensure_logged_in
-    render json: ['Invalid username or password'], status: 401 unless current_user
+    render json: ['Invalid email or password'], status: 401 unless current_user
   end
 
   def login!(user)
