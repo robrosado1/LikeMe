@@ -240,7 +240,7 @@ var Greeting = function Greeting(_ref) {
       className: "header-group"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
       className: "header-name"
-    }, "Hi, ", currentUser.name, "!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    }, "Hi, ", currentUser.fname, "!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       className: "header-button",
       onClick: logout
     }, "Log Out"));
@@ -535,6 +535,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+/* harmony import */ var _util_constants_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../util/constants.jsx */ "./frontend/util/constants.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -554,6 +555,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
 
 
 
@@ -622,10 +624,16 @@ function (_React$Component) {
         className: "signup-form-name-section"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
-        value: this.state.name,
-        onChange: this.update('name'),
-        className: "signup-input",
-        placeholder: "Name"
+        value: this.state.fname,
+        onChange: this.update('fname'),
+        className: "signup-name-input",
+        placeholder: "First name"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        value: this.state.lname,
+        onChange: this.update('lname'),
+        className: "signup-name-input",
+        placeholder: "Last name"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "signup-form-email-section"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -642,7 +650,24 @@ function (_React$Component) {
         onChange: this.update('password'),
         className: "signup-input",
         placeholder: "Password"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "signup-form-birthdate-section"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Birthday"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        id: "month"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "month",
+        disabled: true
+      }, "Month"), _util_constants_jsx__WEBPACK_IMPORTED_MODULE_2__["monthOptions"]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        id: "day"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "day",
+        disabled: true
+      }, "Day"), _util_constants_jsx__WEBPACK_IMPORTED_MODULE_2__["dayOptions"]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        id: "year"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "year",
+        disabled: true
+      }, "Year"), _util_constants_jsx__WEBPACK_IMPORTED_MODULE_2__["yearOptions"])), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "signup-submit-button",
         type: "submit",
         value: "Sign Up"
@@ -653,7 +678,11 @@ function (_React$Component) {
   return SignupForm;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(SignupForm));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(SignupForm)); // <input type="date"
+//   value={this.state.birthdate}
+//   onChange={this.update('birthdate')}
+//   className="signup-birthdate-input"
+//   />
 
 /***/ }),
 
@@ -937,6 +966,63 @@ var configureStore = function configureStore() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (configureStore);
+
+/***/ }),
+
+/***/ "./frontend/util/constants.jsx":
+/*!*************************************!*\
+  !*** ./frontend/util/constants.jsx ***!
+  \*************************************/
+/*! exports provided: monthOptions, dayOptions, yearOptions */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "monthOptions", function() { return monthOptions; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "dayOptions", function() { return dayOptions; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "yearOptions", function() { return yearOptions; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+
+var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+var days = _toConsumableArray(Array(31).keys()).map(function (idx) {
+  return idx + 1;
+});
+
+var currYear = new Date().getFullYear();
+
+var range = function range(start, end) {
+  return Array.from({
+    length: end - start
+  }, function (v, k) {
+    return k + start;
+  });
+};
+
+var years = range(currYear - 99, currYear + 1);
+
+var mapOptions = function mapOptions(type, arr) {
+  return arr.map(function (el) {
+    el = String(el);
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      key: "".concat(type, "-").concat(el),
+      value: el
+    }, el);
+  });
+};
+
+var monthOptions = mapOptions('month', months);
+var dayOptions = mapOptions('day', days);
+var yearOptions = mapOptions('year', years);
 
 /***/ }),
 

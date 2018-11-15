@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { monthOptions, dayOptions, yearOptions } from '../../util/constants.jsx';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -45,10 +46,16 @@ class SignupForm extends React.Component {
             <br/>
               <div className="signup-form-name-section">
                 <input type="text"
-                  value={this.state.name}
-                  onChange={this.update('name')}
-                  className="signup-input"
-                  placeholder="Name"
+                  value={this.state.fname}
+                  onChange={this.update('fname')}
+                  className="signup-name-input"
+                  placeholder="First name"
+                />
+                <input type="text"
+                  value={this.state.lname}
+                  onChange={this.update('lname')}
+                  className="signup-name-input"
+                  placeholder="Last name"
                 />
               </div>
               <br/>
@@ -70,6 +77,23 @@ class SignupForm extends React.Component {
               />
             </div>
             <br/>
+            <div className="signup-form-birthdate-section">
+              <label>Birthday</label>
+              <br/>
+              <select id="month">
+                <option value="month" disabled>Month</option>
+                {monthOptions}
+              </select>
+              <select id="day">
+                <option value="day" disabled>Day</option>
+                {dayOptions}
+              </select>
+              <select id="year">
+                <option value="year" disabled>Year</option>
+                {yearOptions}
+              </select>
+            </div>
+            <br/>
             <input className="signup-submit-button" type="submit" value="Sign Up" />
           </div>
           {this.renderErrors()}
@@ -80,3 +104,14 @@ class SignupForm extends React.Component {
 }
 
 export default withRouter(SignupForm);
+
+
+
+
+
+
+// <input type="date"
+//   value={this.state.birthdate}
+//   onChange={this.update('birthdate')}
+//   className="signup-birthdate-input"
+//   />

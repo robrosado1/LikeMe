@@ -11,6 +11,9 @@ Post.destroy_all
 Comment.destroy_all
 Friendship.destroy_all
 
-test_user = {password: 'starwars', email: 'test_email', name: 'Tester'}
+test_user = {password: 'starwars', email: 'test_email', fname: 'Lester', lname: 'Tester'}
+demo_user = {password: 'gobbletyguck', email: 'demo_email', fname: 'Demo', lname: 'Daggerty'}
+
 
 User.create!(test_user)
+User.create!(demo_user)
