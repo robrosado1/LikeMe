@@ -3,18 +3,27 @@ import { connect } from 'react-redux';
 import { Route, Redirect, withRouter } from 'react-router-dom';
 
 const mapStateToProps = state => (
-  {loggedIn: Boolean(state.session.id)}
+  {
+    loggedIn: Boolean(state.session.id),
+    currentUserId: state.session.id
+  }
 );
 
-const Auth = ({ component: Component, path, loggedIn, exact }) => (
-  <Route path={path} exact={exact} render={(props) => (
-    !loggedIn ? (
-      <Component {...props} />
-    ) : (
-      <Redirect to={`/users/${props.session}/newsfeed`} />
-    )
-  )} />
-);
+const Auth = ({ component: Component, path, loggedIn, exact, currentUserId }) => {
+  debugger
+  return (
+    <Route path={path} exact={exact} render={(props) => {
+        debugger
+        return (
+        !loggedIn ? (
+          <Component {...props} />
+        ) : (
+          <Redirect to={`/users/${currentUserId}/newsfeed`} />
+        )
+      );
+    } } />
+  );
+};
 
 const Protected = ({ component: Component, path, loggedIn, exact }) => (
   <Route path={path} exact={exact} render={(props) => (
