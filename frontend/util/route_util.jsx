@@ -10,10 +10,10 @@ const mapStateToProps = state => (
 );
 
 const Auth = ({ component: Component, path, loggedIn, exact, currentUserId }) => {
-  debugger
+
   return (
     <Route path={path} exact={exact} render={(props) => {
-        debugger
+
         return (
         !loggedIn ? (
           <Component {...props} />
@@ -39,5 +39,3 @@ const Protected = ({ component: Component, path, loggedIn, exact }) => (
 export const AuthRoute = withRouter(connect(mapStateToProps)(Auth));
 
 export const ProtectedRoute = withRouter(connect(mapStateToProps)(Protected));
-
-// {`/users/${window.currentUser.id}/newsfeed`}
