@@ -78,7 +78,7 @@ class SignupForm extends React.Component {
             </div>
             <br/>
             <div className="signup-form-birthdate-section">
-              <label>Birthday</label>
+              <h4 className="homepage-birthdate-header">Birthday</h4>
               <br/>
               <select id="month">
                 <option value="month" disabled>Month</option>
