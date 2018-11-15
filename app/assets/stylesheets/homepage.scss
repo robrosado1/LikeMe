@@ -122,7 +122,7 @@
   font-weight: 300;
   font-size: 20px;
   height: 23px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   margin-top: 0;
 }
 
@@ -135,6 +135,28 @@
   box-sizing: border-box;
   font-size: 18px;
   font-weight: 400;
+}
+
+.signup-form-name-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.signup-name-input {
+  background-color: #ffffff;
+  border: 1px solid #bbc7d9;
+  border-radius: 5px;
+  padding: 8px 10px;
+  box-sizing: content-box;
+  font-size: 18px;
+  font-weight: 400;
+  width: 172px;
+}
+
+#month, #day, #year {
+  height: 28px;
+  font-size: 13px;
+  border-color: #bdc7d8;
 }
 
 .signup-submit-button {
