@@ -6,35 +6,46 @@ class SignupForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      fname: '',
+      lname: '',
       email: '',
-      password: ''
+      password: '',
+      birthdate: '',
+      month: '',
+      year: '',
+      day: '',
+      gender: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleOption = this.handleOption.bind(this);
   }
 
   update(field) {
     return e => this.setState({
-      [field]: e.currentTarget.value
+      [field]: e.target.value
     });
   }
 
   handleSubmit(e) {
     e.preventDefault();
+    this.setState({
+      birthdate: new Date(this.state.year, this.state.month, this.state.day)
+    });
+    debugger
     const user = Object.assign({}, this.state);
     this.props.signup(user);
   }
 
-  renderErrors() {
-    return(
-      <ul className="signup-errors">
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
-    );
+  handleOption(e) {
+      this.setState({
+      gender: e.target.value
+    });
   }
+
+  assembleDate() {
+
+  }
+
 
   render() {
     return (
@@ -73,31 +84,37 @@ class SignupForm extends React.Component {
                 value={this.state.password}
                 onChange={this.update('password')}
                 className="signup-input"
-                placeholder="Password"
+                placeholder="New password"
               />
             </div>
             <br/>
             <div className="signup-form-birthdate-section">
               <h4 className="homepage-birthdate-header">Birthday</h4>
               <br/>
-              <select id="month">
+              <select id="month" onChange={this.update('month')}>
                 <option value="month" disabled>Month</option>
                 {monthOptions}
               </select>
-              <select id="day">
+              <select id="day" onChange={this.update('day')}>
                 <option value="day" disabled>Day</option>
                 {dayOptions}
               </select>
-              <select id="year">
+              <select id="year" onChange={this.update('year')}>
                 <option value="year" disabled>Year</option>
                 {yearOptions}
               </select>
             </div>
             <br/>
-            <input className="signup-submit-button" type="submit" value="Sign Up" />
+              <input type="radio" value="female" checked={this.state.gender === 'female'}
+                onChange={this.handleOption} />Female
+              <input type="radio" value="male" checked={this.state.gender === 'male'}
+                onChange={this.handleOption} />Male
+            <div className="homepage-signup-buttons">
+              <input className="signup-submit-button" type="submit" value="Sign Up" />
+            </div>
           </div>
-          {this.renderErrors()}
         </form>
+        <button className="demo-login-button" onClick={this.props.loginDemo}>Demo Login</button>
       </div>
     );
   }
@@ -105,13 +122,15 @@ class SignupForm extends React.Component {
 
 export default withRouter(SignupForm);
 
-
-
-
-
-
-// <input type="date"
-//   value={this.state.birthdate}
-//   onChange={this.update('birthdate')}
-//   className="signup-birthdate-input"
-//   />
+//
+// renderErrors() {
+//   return(
+//     <ul className="signup-errors">
+//       {this.props.errors.map((error, i) => (
+//         <li key={`error-${i}`}>
+//           {error}
+//         </li>
+//       ))}
+//     </ul>
+//   );
+// }

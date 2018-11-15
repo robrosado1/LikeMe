@@ -3,11 +3,6 @@
   background-color: #edf0f5;
 }
 //Topbar header:
-.topbar {
-  background-color: #44579b;
-  background-image: linear-gradient(#456ba6, #325a9c);
-  border-bottom: 1px solid #293586;
-}
 
 .header {
   width: 980px;
@@ -16,6 +11,9 @@
   flex-direction: row;
   justify-content: space-between;
   margin: 0 auto;
+  background-color: #44579b;
+  background-image: linear-gradient(#456ba6, #325a9c);
+  border-bottom: 1px solid #293586;
 }
 
 .loggedout-header {
@@ -189,6 +187,20 @@
 
 .signup-submit-button:hover {
   background: linear-gradient(#79bc64, #578843);
+}
+
+.demo-login-button {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #3668b8;
+  box-sizing: content-box;
+  color: #ffffff;
+  border: 1px solid #1e4981;
+}
+
+.demo-login-button:hover {
+  background-color: #365899;
+  border: 1px solid #29487d;
 }
 
 //Right side content on homepage:

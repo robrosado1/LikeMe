@@ -19,21 +19,11 @@ class LoginForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    
     const user = Object.assign({}, this.state);
     this.props.login(user);
   }
 
-  renderErrors() {
-    return(
-      <ul className="login-errors">
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
-    );
-  }
 
   render() {
     return (
@@ -63,10 +53,22 @@ class LoginForm extends React.Component {
             <input className="login-submit-button" type="submit" value="Log In" />
           </div>
         </form>
-        {this.renderErrors()}
       </div>
     );
   }
 }
 
 export default withRouter(LoginForm);
+
+
+// renderErrors() {
+//   return(
+//     <ul className="login-errors">
+//       {this.props.errors.map((error, i) => (
+//         <li key={`error-${i}`}>
+//           {error}
+//         </li>
+//       ))}
+//     </ul>
+//   );
+// }
