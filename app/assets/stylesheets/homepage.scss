@@ -83,10 +83,8 @@
   border: 1px solid #29487d;
 }
 
-.login-errors {
-  position: absolute;
-  right: 20px;
-  top: 10px;
+.login-submit-button:active {
+  background-color: #1e4981;
 }
 //Main content on HomePage:
 .main-content {
@@ -96,6 +94,7 @@
   height: 543px;
   margin: 0 auto;
   padding: 20px 5px;
+  justify-content: center;
 }
 
 .main-left {
@@ -186,6 +185,14 @@
   margin-right: 6px;
 }
 
+.unfilled:placeholder-shown {
+  border-color: red;
+}
+
+.signup-name-input:focus, .signup-input:focus {
+  border-color: #bbc7d9;
+}
+
 p {
   font-size: 12px;
   width: 316px;
@@ -238,6 +245,12 @@ p {
 strong {
   font-weight: 800;
 
+}
+
+.homepage-left {
+  height: 378px;
+  min-width: 565px;
+  margin-right: 16px;
 }
 
 .homepage-left h2 {
