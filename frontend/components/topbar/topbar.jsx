@@ -13,5 +13,4 @@ const Topbar = ({ currentUser, logout }) => (
   </div>
 );
 
-
 export default Topbar;
