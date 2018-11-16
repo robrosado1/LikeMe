@@ -8,6 +8,7 @@ const Header = () => (
     <div className="header-storage">
       <AuthRoute exact path="/" component={TopbarContainer} />
       <AuthRoute exact path="/login" component={TopbarContainer} />
+      <AuthRoute exact path="/signup" component={TopbarContainer} />
       <AuthRoute exact path="/" component={LoginFormContainer} />
     </div>
   </header>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Redirect } from 'react-router-dom';
 import { monthOptions, dayOptions, yearOptions } from '../../util/constants.jsx';
 
 class SignupForm extends React.Component {
@@ -28,10 +28,13 @@ class SignupForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+
+    this.assembleDate();
+
     this.setState({
       birthdate: new Date(this.state.year, this.state.month, this.state.day)
     });
-    debugger
+
     const user = Object.assign({}, this.state);
     this.props.signup(user);
   }
@@ -44,10 +47,30 @@ class SignupForm extends React.Component {
 
   assembleDate() {
 
+    const birthday = new Date(
+      this.state.year,
+      this.state.month,
+      this.state.day
+    );
+    this.setState({
+      birthdate: birthday
+    });
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
 
   render() {
+
+    if (this.props.errors.length > 0 && this.props.errors[0] !== 'Invalid login credentials') {
+
+      return (
+        <Redirect to="/signup" />
+      );
+
+    }
+
     return (
       <div className="signup-form-container">
         <h2 className="signup-headline">Sign Up</h2>
