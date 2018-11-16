@@ -125,9 +125,10 @@
 }
 
 .homepage-birthdate-header {
-  margin: 0;
-  font-size: 20px;
+  margin: 0 0 10px 0;
+  font-size: 18px;
   font-weight: normal;
+
 }
 
 .signup-input {
@@ -161,6 +162,32 @@
   height: 28px;
   font-size: 13px;
   border-color: #bdc7d8;
+}
+
+.radio-buttons {
+  padding: 5px;
+  width: 172px;
+  display: flex;
+  flex-direction: row;
+  font-size: 18px;
+}
+
+.fem-button-group, .male-button-group {
+  margin-right: 25px;
+  display:  flex;
+  align-items: baseline;
+}
+
+.radio-button-fem, .radio-button-male {
+  margin-right: 6px;
+}
+
+p {
+  font-size: 12px;
+  width: 316px;
+  height: 42px;
+  color: #777;
+  margin: 10px 0 10px 0;
 }
 
 .signup-submit-button {
@@ -203,7 +230,7 @@
   border: 1px solid #29487d;
 }
 
-//Right side content on homepage:
+//Left side content on homepage:
 strong {
   font-weight: 800;
 

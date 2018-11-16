@@ -1,11 +1,11 @@
 import React from 'react';
 import Header from '../header/header';
 import NavbarContainer from '../navbar/navbar_container';
-import { ProtectedRoute } from '../../util/route_util';
+import { ProtectedRoute, AuthRoute } from '../../util/route_util';
 
 const PageTop = () => (
   <>
-    <Header />
+    <AuthRoute path="/" component={Header} />
     <ProtectedRoute path="/users" component={NavbarContainer} />
   </>
 );
