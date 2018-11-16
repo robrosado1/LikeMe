@@ -90,7 +90,6 @@ class SignupForm extends React.Component {
             <br/>
             <div className="signup-form-birthdate-section">
               <h4 className="homepage-birthdate-header">Birthday</h4>
-              <br/>
               <select id="month" onChange={this.update('month')}>
                 <option value="month" disabled>Month</option>
                 {monthOptions}
@@ -105,10 +104,15 @@ class SignupForm extends React.Component {
               </select>
             </div>
             <br/>
-              <input type="radio" value="female" checked={this.state.gender === 'female'}
-                onChange={this.handleOption} />Female
-              <input type="radio" value="male" checked={this.state.gender === 'male'}
-                onChange={this.handleOption} />Male
+            <ul className="radio-buttons">
+              <li className="fem-button-group"><input type="radio" value="female" checked={this.state.gender === 'female'}
+                onChange={this.handleOption} className="radio-button-fem"/> Female </li>
+              <li className="male-button-group"><input type="radio" value="male" checked={this.state.gender === 'male'}
+                onChange={this.handleOption} className="radio-button-male"/> Male </li>
+            </ul>
+            <p>
+              By clicking Sign Up, you agree to our Terms, Data Policy and Cookies Policy. You may receive SMS Notifications from us and can opt out any time.
+            </p>
             <div className="homepage-signup-buttons">
               <input className="signup-submit-button" type="submit" value="Sign Up" />
             </div>
