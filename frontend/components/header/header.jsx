@@ -5,9 +5,11 @@ import { AuthRoute } from '../../util/route_util';
 
 const Header = () => (
   <header className="header">
-    <AuthRoute exact path="/" component={TopbarContainer} />
-    <AuthRoute exact path="/login" component={TopbarContainer} />
-    <AuthRoute exact path="/" component={LoginFormContainer} />
+    <div className="header-storage">
+      <AuthRoute exact path="/" component={TopbarContainer} />
+      <AuthRoute exact path="/login" component={TopbarContainer} />
+      <AuthRoute exact path="/" component={LoginFormContainer} />
+    </div>
   </header>
 );
 
