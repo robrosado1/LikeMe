@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Redirect } from 'react-router-dom';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -19,13 +19,24 @@ class LoginForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    
+
     const user = Object.assign({}, this.state);
     this.props.login(user);
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
 
   render() {
+
+    if (this.props.errors[0] === 'Invalid login credentials') {
+
+      return (
+        <Redirect to="/login" />
+      );
+    }
+
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
@@ -60,7 +71,7 @@ class LoginForm extends React.Component {
 
 export default withRouter(LoginForm);
 
-
+//
 // renderErrors() {
 //   return(
 //     <ul className="login-errors">
