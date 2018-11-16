@@ -24,9 +24,6 @@ class LoginForm extends React.Component {
     this.props.login(user);
   }
 
-  componentWillUnmount() {
-    this.props.clearErrors();
-  }
 
   render() {
 
@@ -71,6 +68,9 @@ class LoginForm extends React.Component {
 
 export default withRouter(LoginForm);
 
+// componentWillUnmount() {
+//   this.props.clearErrors();
+// }
 //
 // renderErrors() {
 //   return(

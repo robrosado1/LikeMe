@@ -1,0 +1,27 @@
+.login-page-signup-button {
+  width: 47px;
+  height: 26px;
+  top: -34px;
+  left: 164px;
+  background-color: #42b72a;
+  border: 1px solid #42b72a;
+  color: #fff;
+  font-size: 12px;
+  padding: 0 10px;
+  border-radius: 2px;
+  font-weight: 600;
+  box-sizing: content-box;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.login-page-signup-button:hover {
+  background-color: #36a420;
+  border-color: #36a420;
+}
+
+.login-page-signup-button:active {
+  background-color: #2b9217;
+  border-color: #2b9217;
+}

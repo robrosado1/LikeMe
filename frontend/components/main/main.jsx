@@ -6,9 +6,7 @@ import HomePageLeft from '../session_form/homepage_left';
 const Main = () => (
   <div className="main-page">
     <div className="main-content">
-      <div className="main-left">
-        <AuthRoute exact path="/" component={HomePageLeft} />
-      </div>
+      <AuthRoute exact path="/" component={HomePageLeft} />
       <div className="main-right">
         <AuthRoute exact path="/" component={SignupFormContainer} />
         <AuthRoute exact path="/signup" component={SignupFormContainer} />
