@@ -83,10 +83,8 @@
   border: 1px solid #29487d;
 }
 
-.login-errors {
-  position: absolute;
-  right: 20px;
-  top: 10px;
+.login-submit-button:active {
+  background-color: #1e4981;
 }
 //Main content on HomePage:
 .main-content {
@@ -106,27 +104,35 @@
 //SignupForm on right section of homepage:
 .signup-form-container {
   height: 380px;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  position: relative;
+  top: 58px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid lightgray;
 }
 
 .signup-headline {
   font-family: 'Mukta', sans-serif;
   font-size: 38px;
+  position: relative;
+  top: 8px;
 }
 
 .signup-subheadline {
   font-weight: 300;
   font-size: 20px;
   height: 23px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   margin-top: 0;
 }
 
 .homepage-birthdate-header {
-  margin: 0 0 10px 0;
+  margin: 5px 0 6px 0;
   font-size: 18px;
   font-weight: normal;
-
 }
 
 .signup-input {
@@ -143,6 +149,13 @@
 .signup-form-name-section {
   display: flex;
   justify-content: space-between;
+  margin-top: -5px;
+}
+
+.signup-form-name-section,
+.signup-form-email-section,
+.signup-form-password-section {
+  margin-bottom: -6px;
 }
 
 .signup-name-input {
@@ -157,7 +170,7 @@
 }
 
 #month, #day, #year {
-  height: 28px;
+  height: 30px;
   font-size: 13px;
   border-color: #bdc7d8;
 }
@@ -168,6 +181,8 @@
   display: flex;
   flex-direction: row;
   font-size: 18px;
+  position: relative;
+  top: -10px;
 }
 
 .fem-button-group, .male-button-group {
@@ -180,28 +195,38 @@
   margin-right: 6px;
 }
 
+.unfilled:placeholder-shown {
+  border-color: red;
+}
+
+.signup-name-input:focus, .signup-input:focus {
+  border-color: #bbc7d9;
+}
+
 p {
-  font-size: 12px;
-  width: 316px;
+  font-size: 11px;
+  width: 323px;
   height: 42px;
   color: #777;
   margin: 10px 0 10px 0;
+  position: relative;
+  top: -10px;
 }
 
 .signup-submit-button {
   height: 23px;
   width: 152px;
   padding: 7px 20px;
-  margin: 10px 0px;
+  margin: 10px 0px 18px 0px;
   background: linear-gradient(#67ae55, #578843);
   background-color: #69a74e;
-  box-shadow: 0 1px 1px #a4e388;
+  box-shadow: inset 0 1px 1px #a4e388;
   border: 1px solid;
   border-color: #3b6e22 #3b6e22 #2c5115;
   border-radius: 5px;
   color: #fff;
   text-shadow: 0 1px 2px rgba(0,0,0,.5);
-  font-size: 19px;
+  font-size: 20px;
   font-weight: 600;
   font-family: 'Mukta', sans-serif;
   display: flex;
@@ -215,12 +240,18 @@ p {
 }
 
 .demo-login-button {
-  padding: 10px;
+  padding: 15px;
   border-radius: 5px;
   background-color: #3668b8;
-  box-sizing: content-box;
-  color: #ffffff;
   border: 1px solid #1e4981;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  top: 13px;
 }
 
 .demo-login-button:hover {
@@ -238,6 +269,12 @@ p {
 
 strong {
   font-weight: 800;
+}
+
+.homepage-left {
+  height: 378px;
+  min-width: 565px;
+  margin-right: 16px;
 }
 
 .homepage-left h2 {
