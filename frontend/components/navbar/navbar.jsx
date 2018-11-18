@@ -9,7 +9,7 @@ class Navbar extends React.Component {
       <div className="navbar">
         <div className="navbar-group">
           <div className="navbar-search">
-            <Link to={`/users/${this.props.currentUser.id}/wall`}>Logo</Link>
+            <Link to={`/users/${this.props.currentUser.id}/newfeed`}>Logo</Link>
             <input type="search" placeholder="Search"></input>
           </div>
           <div className="navbar-navigation">
