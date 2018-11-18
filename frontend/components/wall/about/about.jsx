@@ -1,17 +1,22 @@
 import React from 'react';
 
-class Profile extends React.Component {
+class About extends React.Component {
   constructor(props) {
     super(props);
-    // this.state = this.props
   }
 
   render() {
     return (
       <div className="about-section">
+        <span>About</span>
         <div className="about-contact-info">
           <span>CONTACT INFORMATION</span>
-
+          <ul>
+            <li>
+              <label>Address</label>
+              <span>{this.props}</span>
+            </li>
+          </ul>
         </div>
         <div className="about-basic-info">
           <span>BASIC INFORMATION</span>
@@ -22,3 +27,5 @@ class Profile extends React.Component {
     )
   }
 }
+
+export default About;
