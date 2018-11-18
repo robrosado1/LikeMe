@@ -29,9 +29,13 @@ class SignupForm extends React.Component {
   }
 
   update(field) {
-    return e => this.setState({
-      [field]: e.target.value
-    });
+    let toBeChanged = Object.assign({}, this.state.form);
+    return e => {
+      toBeChanged[field] = e.target.value;
+      return this.setState({
+        form: toBeChanged
+      });
+    };
   }
 
   handleSubmit(e) {
@@ -44,9 +48,7 @@ class SignupForm extends React.Component {
       if (this.state.form[field] === '') {
         shouldSubmit = false;
         newState[field] = 'unfilled';
-        debugger
       } else {
-        debugger
         newState[field] = '';
       };
     }.bind(this);
@@ -72,23 +74,23 @@ class SignupForm extends React.Component {
   }
 
   render() {
-
+    const title = this.props.match.path === '/signup' ? 'Create a New Account' : 'Sign Up';
     return (
       <div className="signup-form-container">
-        <h2 className="signup-headline">Sign Up</h2>
+        <h2 className="signup-headline">{title}</h2>
         <h4 className="signup-subheadline">It's free and always will be.</h4>
         <form onSubmit={this.handleSubmit} className="signup-form-box">
           <div className="signup-form">
             <br/>
               <div className="signup-form-name-section">
                 <input type="text"
-                  value={this.state.fname}
+                  value={this.state.form.fname}
                   onChange={this.update('fname')}
                   className={`signup-name-input ${this.state.errors.fname}`}
                   placeholder="First name"
                 />
                 <input type="text"
-                  value={this.state.lname}
+                  value={this.state.form.lname}
                   onChange={this.update('lname')}
                   className={`signup-name-input ${this.state.errors.lname}`}
                   placeholder="Last name"
@@ -97,7 +99,7 @@ class SignupForm extends React.Component {
               <br/>
             <div className="signup-form-email-section">
               <input type="text"
-                value={this.state.email}
+                value={this.state.form.email}
                 onChange={this.update('email')}
                 className={`signup-input ${this.state.errors.email}`}
                 placeholder="Email"
@@ -106,7 +108,7 @@ class SignupForm extends React.Component {
             <br/>
             <div className="signup-form-password-section">
               <input type="password"
-                value={this.state.password}
+                value={this.state.form.password}
                 onChange={this.update('password')}
                 className={`signup-input ${this.state.errors['password']}`}
                 placeholder="New password"

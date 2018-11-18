@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 class LoginpageForm extends React.Component {
   constructor(props) {
@@ -23,32 +24,34 @@ class LoginpageForm extends React.Component {
     this.props.login(user);
   }
 
-  renderErrors() {
-    return(
-      <ul className="login-errors">
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
-    );
+  // renderErrors() {
+  //   return(
+  //     <ul className="login-errors">
+  //       {this.props.errors.map((error, i) => (
+  //         <li key={`error-${i}`}>
+  //           {error}
+  //         </li>
+  //       ))}
+  //     </ul>
+  //   );
+  // }
+  componentWillUnmount() {
+    this.props.clearErrors();
   }
 
   render() {
     return (
-      <div>
+      <div className="loginpage-box">
         <h4 className="loginpage-title">Log in to Likeme</h4>
-        <form className="loginpage-form" onSubmit={handleSubmit}>
+        <form className="loginpage-form" onSubmit={this.handleSubmit}>
           <input type="text" value={this.state.email} onChange={this.update('email')} />
-          <input type="text" value={this.state.password} onChange={this.update('password')} />
+          <input type="password" value={this.state.password} onChange={this.update('password')} />
+          <input type="submit" value="Log In" />
         </form>
+        <Link to="/signup">Sign up for Likeme</Link>
       </div>
     )
   }
 }
 
-//
-// componentWillUnmount() {
-//   this.props.clearErrors();
-// }
+export default LoginpageForm;
