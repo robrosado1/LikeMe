@@ -6,37 +6,65 @@ class SignupForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      fname: '',
-      lname: '',
-      email: '',
-      password: '',
-      birthdate: '',
-      month: '',
-      year: '',
-      day: '',
-      gender: ''
+      form: {
+        fname: '',
+        lname: '',
+        email: '',
+        password: '',
+        birthdate: '',
+        gender: ''
+      },
+      errors: {
+        fname: '',
+        lname: '',
+        email: '',
+        password: '',
+        birthdate: '',
+        gender: ''
+      }
     };
+    this.fields = Object.keys(this.state.form);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleOption = this.handleOption.bind(this);
   }
 
   update(field) {
-    return e => this.setState({
-      [field]: e.target.value
-    });
+    let toBeChanged = Object.assign({}, this.state.form);
+    return e => {
+      toBeChanged[field] = e.target.value;
+      return this.setState({
+        form: toBeChanged
+      });
+    };
   }
 
   handleSubmit(e) {
     e.preventDefault();
 
-    this.assembleDate();
+    let shouldSubmit = true;
+    let newState = {};
+    const cb = function(field) {
 
+      if (this.state.form[field] === '') {
+        shouldSubmit = false;
+        newState[field] = 'unfilled';
+      } else {
+        newState[field] = '';
+      };
+    }.bind(this);
+
+
+    this.fields.forEach(cb);
     this.setState({
-      birthdate: new Date(this.state.year, this.state.month, this.state.day)
+      errors: newState
     });
 
-    const user = Object.assign({}, this.state);
-    this.props.signup(user);
+    console.log(this.state);
+
+    if (shouldSubmit) {
+      const user = Object.assign({}, this.state.form);
+      this.props.signup(user);
+    }
   }
 
   handleOption(e) {
@@ -45,68 +73,44 @@ class SignupForm extends React.Component {
     });
   }
 
-  assembleDate() {
-
-    const birthday = new Date(
-      this.state.year,
-      this.state.month,
-      this.state.day
-    );
-    this.setState({
-      birthdate: birthday
-    });
-  }
-
-  componentWillUnmount() {
-    this.props.clearErrors();
-  }
-
   render() {
-
-    if (this.props.errors.length > 0 && this.props.errors[0] !== 'Invalid login credentials') {
-
-      return (
-        <Redirect to="/signup" />
-      );
-
-    }
-
+    const title = this.props.match.path === '/signup' ? 'Create a New Account' : 'Sign Up';
     return (
       <div className="signup-form-container">
-        <h2 className="signup-headline">Sign Up</h2>
+        <h2 className="signup-headline">{title}</h2>
         <h4 className="signup-subheadline">It's free and always will be.</h4>
         <form onSubmit={this.handleSubmit} className="signup-form-box">
           <div className="signup-form">
             <br/>
               <div className="signup-form-name-section">
                 <input type="text"
-                  value={this.state.fname}
+                  value={this.state.form.fname}
                   onChange={this.update('fname')}
-                  className="signup-name-input"
+                  className={`signup-name-input ${this.state.errors.fname}`}
                   placeholder="First name"
                 />
                 <input type="text"
-                  value={this.state.lname}
+                  value={this.state.form.lname}
                   onChange={this.update('lname')}
-                  className="signup-name-input"
+                  className={`signup-name-input ${this.state.errors.lname}`}
                   placeholder="Last name"
                 />
               </div>
               <br/>
             <div className="signup-form-email-section">
               <input type="text"
-                value={this.state.email}
+                value={this.state.form.email}
                 onChange={this.update('email')}
-                className="signup-input"
+                className={`signup-input ${this.state.errors.email}`}
                 placeholder="Email"
               />
             </div>
             <br/>
             <div className="signup-form-password-section">
               <input type="password"
-                value={this.state.password}
+                value={this.state.form.password}
                 onChange={this.update('password')}
-                className="signup-input"
+                className={`signup-input ${this.state.errors['password']}`}
                 placeholder="New password"
               />
             </div>
@@ -160,4 +164,13 @@ export default withRouter(SignupForm);
 //       ))}
 //     </ul>
 //   );
+// }
+
+//
+// if (this.props.errors.length > 0 && this.props.errors[0] !== 'Invalid login credentials') {
+//
+//   return (
+//     <Redirect to="/signup" />
+//   );
+//
 // }
