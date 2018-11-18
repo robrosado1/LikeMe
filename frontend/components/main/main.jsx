@@ -3,7 +3,6 @@ import { AuthRoute } from '../../util/route_util';
 import SignupFormContainer from '../session_form/signup_form_container';
 import HomePageLeft from '../session_form/homepage_left';
 import LoginpageFormContainer from '../loginpage/loginpage_form_container'
-import MainRight from './main_right';
 
 const MainRight = () => (
   <div className="main-right">
