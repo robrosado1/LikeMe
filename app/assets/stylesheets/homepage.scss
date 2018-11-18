@@ -98,12 +98,6 @@
   padding: 20px 5px;
 }
 
-.main-left {
-  height: 378px;
-  min-width: 565px;
-  margin-right: 16px;
-}
-
 .main-right {
   height: 545px;
   width: 399px;
@@ -235,9 +229,15 @@ p {
 }
 
 //Left side content on homepage:
+
+.homepage-left {
+  height: 378px;
+  min-width: 565px;
+  margin-right: 16px;
+}
+
 strong {
   font-weight: 800;
-
 }
 
 .homepage-left h2 {
