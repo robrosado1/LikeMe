@@ -1,3 +1,4 @@
+//Loginpage header:
 .login-page-signup-button {
   width: 47px;
   height: 26px;
@@ -24,4 +25,17 @@
 .login-page-signup-button:active {
   background-color: #2b9217;
   border-color: #2b9217;
+}
+//Loginpage main block:
+
+.loginpage-box {
+  background-color: #fff;
+  width: 396px;
+  height: 274px;
+  text-align: center;
+  border: 1px solid #dddfe2;
+  border-radius: 3px;
+  padding: 22px 108px 26px;
+  margin: 80px auto auto auto;
+
 }
