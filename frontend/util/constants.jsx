@@ -1,18 +1,18 @@
 import React from 'react';
 
 const months = [
-  'Jan',
-  'Feb',
-  'Mar',
-  'Apr',
+  'January',
+  'February',
+  'March',
+  'April',
   'May',
-  'Jun',
-  'Jul',
-  'Aug',
-  'Sep',
-  'Oct',
-  'Nov',
-  'Dec'
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December'
 ];
 
 const todayDate = new Date();
@@ -27,9 +27,9 @@ const range = (start, end) => Array.from({length: (end - start)}, (v, k) => k + 
 const years = range(currYear - 99, currYear + 1).reverse();
 
 export const monthOptions = months.map((month, i) => {
-  month = String(month);
+  month = String(month).slice(0,3);
   return (
-    <option key={`month-${i}`} value={i} defaultValue={todayMonth === i}>{month}</option>
+    <option key={`month-${i}`} value={months[i]} defaultValue={todayMonth === i}>{month}</option>
   );
 });
 
