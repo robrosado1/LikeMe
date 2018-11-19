@@ -186,17 +186,20 @@
 }
 
 .fem-button-group, .male-button-group {
-  margin-right: 25px;
   display:  flex;
   align-items: baseline;
+  padding: 6px 10px 6px 8px;
+  margin-right: 9px;
+  margin-left: -5px;
 }
 
 .radio-button-fem, .radio-button-male {
-  margin-right: 6px;
+  margin-right: 7px;
 }
 
-.unfilled:placeholder-shown {
-  border-color: red;
+.unfilled:placeholder-shown, li.unfilled {
+  border: 1px solid red;
+  border-radius: 5px;
 }
 
 .signup-name-input:focus, .signup-input:focus {

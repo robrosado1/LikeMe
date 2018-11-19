@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter, Redirect } from 'react-router-dom';
-import { monthOptions, dayOptions, yearOptions } from '../../util/constants.jsx';
+import { monthOptions, dayOptions, yearOptions, months } from '../../util/constants.jsx';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -11,7 +11,9 @@ class SignupForm extends React.Component {
         lname: '',
         email: '',
         password: '',
-        birthdate: '',
+        birthday: '',
+        birthmonth: '',
+        birthyear: '',
         gender: ''
       },
       errors: {
@@ -19,7 +21,9 @@ class SignupForm extends React.Component {
         lname: '',
         email: '',
         password: '',
-        birthdate: '',
+        birthday: '',
+        birthmonth: '',
+        birthyear: '',
         gender: ''
       }
     };
@@ -44,8 +48,7 @@ class SignupForm extends React.Component {
     let shouldSubmit = true;
     let newState = {};
     const cb = function(field) {
-
-      if (this.state.form[field] === '') {
+      if (this.state.form[field].length === 0) {
         shouldSubmit = false;
         newState[field] = 'unfilled';
       } else {
@@ -53,25 +56,26 @@ class SignupForm extends React.Component {
       };
     }.bind(this);
 
-
     this.fields.forEach(cb);
     this.setState({
       errors: newState
     });
 
-    console.log(this.state);
-
     if (shouldSubmit) {
       const user = Object.assign({}, this.state.form);
+      debugger
       this.props.signup(user);
     }
   }
 
   handleOption(e) {
-      this.setState({
-      gender: e.target.value
+    const newGender = Object.assign({}, this.state.form);
+    newGender.gender = e.target.value;
+    this.setState({
+      form: newGender,
+      errors: newGender
     });
-  }
+  };
 
   render() {
     const title = this.props.match.path === '/signup' ? 'Create a New Account' : 'Sign Up';
@@ -117,25 +121,29 @@ class SignupForm extends React.Component {
             <br/>
             <div className="signup-form-birthdate-section">
               <h4 className="homepage-birthdate-header">Birthday</h4>
-              <select id="month" onChange={this.update('month')}>
+              <select id="month" onChange={this.update('birthmonth')}>
                 <option value="month" disabled>Month</option>
                 {monthOptions}
               </select>
-              <select id="day" onChange={this.update('day')}>
+              <select id="day" onChange={this.update('birthday')}>
                 <option value="day" disabled>Day</option>
                 {dayOptions}
               </select>
-              <select id="year" onChange={this.update('year')}>
+              <select id="year" onChange={this.update('birthyear')}>
                 <option value="year" disabled>Year</option>
                 {yearOptions}
               </select>
             </div>
             <br/>
             <ul className="radio-buttons">
-              <li className="fem-button-group"><input type="radio" value="female" checked={this.state.gender === 'female'}
-                onChange={this.handleOption} className="radio-button-fem"/> Female </li>
-              <li className="male-button-group"><input type="radio" value="male" checked={this.state.gender === 'male'}
-                onChange={this.handleOption} className="radio-button-male"/> Male </li>
+              <li className={`fem-button-group ${this.state.errors['gender']}`}>
+                <input type="radio" value="Female"
+                checked={this.state.form.gender === 'Female'}
+                onChange={this.handleOption} className="radio-button-fem"/>Female</li>
+              <li className={`male-button-group ${this.state.errors['gender']}`}>
+                <input type="radio" value="Male"
+                checked={this.state.form.gender === 'Male'}
+                onChange={this.handleOption} className="radio-button-male"/>Male</li>
             </ul>
             <p>
               By clicking Sign Up, you agree to our Terms, Data Policy and Cookies Policy. You may receive SMS Notifications from us and can opt out any time.

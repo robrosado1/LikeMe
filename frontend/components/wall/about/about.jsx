@@ -4,6 +4,7 @@ class AboutBox extends React.Component {
   constructor(props) {
     super(props);
     this.pageOwner = this.props.pageOwner;
+    debugger
   }
 
   render() {
@@ -22,7 +23,7 @@ class AboutBox extends React.Component {
             </li>
             <li>
               <label>Email</label>
-              <span>{this.props.pageOwner.email}</span>
+              <span>{this.pageOwner.email}</span>
             </li>
           </ul>
         </div>
@@ -31,15 +32,15 @@ class AboutBox extends React.Component {
           <ul>
             <li>
               <label>Birth Date</label>
-              <span>{this.props.pageOwner.month} and {this.props.pageOwner.day}</span>
+              <span>{this.pageOwner.birthmonth} and {this.pageOwner.birthday}</span>
             </li>
             <li>
               <label>Birth Year</label>
-              <span>{this.props.pageOwner.year}</span>
+              <span>{this.pageOwner.birthyear}</span>
             </li>
             <li>
               <label>Gender</label>
-              <span>{this.props.pageOwner.gender}</span>
+              <span>{this.pageOwner.gender}</span>
             </li>
           </ul>
         </div>

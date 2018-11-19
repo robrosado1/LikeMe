@@ -11,8 +11,10 @@ Post.destroy_all
 Comment.destroy_all
 Friendship.destroy_all
 
-test_user = {password: 'starwars', email: 'test_email', fname: 'Lester', lname: 'Tester'}
-demo_user = {password: 'gobbletyguck', email: 'demo_email', fname: 'Demo', lname: 'Daggerty'}
+test_user = {password: 'starwars', email: 'test_email', fname: 'Lester',
+  lname: 'Tester', birthday: 12, birthmonth: 'December', birthyear: 1980}
+demo_user = {password: 'gobbletyguck', email: 'demo_email', fname: 'Demo',
+  lname: 'Daggerty', birthday: 4, birthmonth: 'March', birthyear: 1988}
 
 
 User.create!(test_user)
