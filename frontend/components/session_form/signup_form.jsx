@@ -63,7 +63,7 @@ class SignupForm extends React.Component {
 
     if (shouldSubmit) {
       const user = Object.assign({}, this.state.form);
-      debugger
+      
       this.props.signup(user);
     }
   }

@@ -4,7 +4,7 @@ class AboutBox extends React.Component {
   constructor(props) {
     super(props);
     this.pageOwner = this.props.pageOwner;
-    debugger
+    // 
   }
 
   render() {

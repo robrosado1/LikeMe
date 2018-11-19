@@ -3,13 +3,18 @@ import { Link } from 'react-router-dom';
 
 
 class Navbar extends React.Component {
+  constructor(props) {
+    super(props);
+
+  }
 
   render() {
+
     return (
       <div className="navbar">
         <div className="navbar-group">
           <div className="navbar-search">
-            <Link to={`/users/${this.props.currentUser.id}/newfeed`}>Logo</Link>
+            <Link to={`/users/${this.props.currentUser.id}/newsfeed`}>Logo</Link>
             <input type="search" placeholder="Search"></input>
           </div>
           <div className="navbar-navigation">

@@ -6,27 +6,28 @@ class Headboard extends React.Component {
 
   constructor(props) {
     super(props);
+    this.currentUser = this.props.currentUser;
   }
 
   render() {
-    if (this.props.path.slice(-8) === "newsfeed") {
+    if (Boolean(this.props.location.pathname.match(/newsfeed$/))) {
       return "";
     }
     return (
       <div className="headboard">
         <div className="cover-photo">
-          <span className="headboard-name">
-            {this.props.currentUser.fname} {this.props.currentUser.lname}
-          </span>
+          <h3 className="headboard-name">
+            {this.currentUser.fname} {this.currentUser.lname}
+          </h3>
         </div>
         <div className="headboard-navigation">
           <ul className="headboard-links">
-            <li><Link to={`/users/${this.props.currentUser.id}/wall`}>Timeline</Link></li>
-            <li><Link to={`/users/${this.props.currentUser.id}/about`} disabled={this.props.path.slice(-5) === "about"}>About</Link></li>
-            <li><Link to={`/users/${this.props.currentUser.id}/friend-list`}>Friends</Link></li>
-            <li><Link to={`/users/${this.props.currentUser.id}/photos`}>Photos</Link></li>
-            <li><Link to={`/users/${this.props.currentUser.id}/stories`}>Archive</Link></li>
-            <li><button>More</button></li>
+            <Link className="headboard-nav" to={`/users/${this.currentUser.id}/wall`}>Timeline</Link>
+            <Link className="headboard-nav" to={`/users/${this.currentUser.id}/about`}>About</Link>
+            <Link className="headboard-nav" to={`/users/${this.currentUser.id}/friend-list`}>Friends</Link>
+            <Link className="headboard-nav" to={`/users/${this.currentUser.id}/photos`}>Photos</Link>
+            <Link className="headboard-nav" to={`/users/${this.currentUser.id}/stories`}>Archive</Link>
+            <button className="headboard-nav">More</button>
           </ul>
         </div>
       </div>
@@ -34,9 +35,10 @@ class Headboard extends React.Component {
   };
 }
 
-const mapStateToProps = ({ session, entities: { users } }) => {
+const mapStateToProps = ({ session, entities: { users } }, ownProps) => {
+  
   return {
-    currentUser: users[session.id],
+    currentUser: users[session.id]
   };
 };
 
