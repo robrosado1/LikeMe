@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import { AuthRoute } from '../../util/route_util';
 
 const SignupButton = () => (
@@ -9,7 +9,7 @@ const SignupButton = () => (
 const Topbar = ({ currentUser, logout }) => (
   <div className="loggedout-header">
     <Link to="/"><h1 className="app-name">~likeme~</h1></Link>
-    <AuthRoute exact path="/login" component={SignupButton} />
+    <Route exact path="/login" component={SignupButton} />
   </div>
 );
 
