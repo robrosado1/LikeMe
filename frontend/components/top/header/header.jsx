@@ -1,7 +1,7 @@
 import React from 'react';
 import TopbarContainer from '../topbar/topbar_container';
-import LoginFormContainer from '../session_form/login_form_container';
-import { AuthRoute } from '../../util/route_util';
+import LoginFormContainer from '../../session_form/login_form_container';
+import { AuthRoute } from '../../../util/route_util';
 
 const Header = () => (
   <header className="header">
