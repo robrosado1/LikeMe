@@ -36,7 +36,7 @@ class Headboard extends React.Component {
 }
 
 const mapStateToProps = ({ session, entities: { users } }, ownProps) => {
-  
+
   return {
     currentUser: users[session.id]
   };

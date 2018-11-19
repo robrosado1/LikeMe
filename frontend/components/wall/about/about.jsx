@@ -1,14 +1,21 @@
 import React from 'react';
+import { monthOptions, dayOptions, yearOptions } from '../../../util/constants';
 
 class AboutBox extends React.Component {
   constructor(props) {
     super(props);
     this.pageOwner = this.props.pageOwner;
-    // 
+    this.state = {info: this.props.pageOwner};
+    debugger
+    this.isPageOwner = (this.props.currentUser.id === this.pageOwner.id);
+  }
+
+  componentDidMount() {
   }
 
   render() {
-    if (this.props.path.slice(-5) !== "about") {
+    debugger
+    if (!this.props.location.pathname.match(/about$/)) {
       return "";
     }
     return (
@@ -23,7 +30,17 @@ class AboutBox extends React.Component {
             </li>
             <li>
               <label>Email</label>
-              <span>{this.pageOwner.email}</span>
+              <span
+                className={`info-display ${this.isPageOwner ? 'owned' : ''}`}>
+                {this.pageOwner.email}
+              </span>
+              <div hidden={this.isPageOwner} className="secret">
+                <form className="email-edit-form">
+                  <input type="email" value={this.state.email} placeholder="Email"/>
+                  <input type="submit" value="Save Changes" />
+                </form>
+                <button value="Cancel" />
+              </div>
             </li>
           </ul>
         </div>
@@ -32,16 +49,55 @@ class AboutBox extends React.Component {
           <ul>
             <li>
               <label>Birth Date</label>
-              <span>{this.pageOwner.birthmonth} and {this.pageOwner.birthday}</span>
+              <span className="info-display" >
+                {this.pageOwner.birthmonth} and {this.pageOwner.birthday}
+              </span>
+              <div hidden={this.isPageOwner} className="secret">
+                <form className="email-edit-form">
+                  <select value="Day" default={this.state.birthday}>
+                    {dayOptions}
+                  </select>
+                  <select value="Month" default={this.state.birthmonth}>
+                    {dayOptions}
+                  </select>
+                  <input type="submit" value="Save Changes" />
+                </form>
+                <button value="Cancel" />
+              </div>
             </li>
             <li>
               <label>Birth Year</label>
-              <span>{this.pageOwner.birthyear}</span>
+              <span className="">
+                {this.pageOwner.birthyear}
+              </span>
+              <div hidden={this.isPageOwner} className="secret">
+                <form className="email-edit-form">
+                  <select value="Year" default={this.state.birthyear}>
+                    {dayOptions}
+                  </select>
+                  <input type="submit" value="Save Changes" />
+                </form>
+                <button value="Cancel" />
+              </div>
             </li>
             <li>
               <label>Gender</label>
-              <span>{this.pageOwner.gender}</span>
+              <span className="">
+                {this.pageOwner.gender}
+              </span>
             </li>
+            <div hidden={this.isPageOwner} className="secret">
+              <form className="email-edit-form">
+                <select>
+                  <option disabled={true}>Gender</option>
+                  <option defaultValue="Female" checked={this.state.gender === "Female"}>Female</option>
+                  <option defaultValue="Male" checked={this.state.gender === "Male"}>Male</option>
+                  <option defaultValue="Custom" checked={this.state.gender === "Custom"}>Custom</option>
+                </select>
+                <input type="submit" value="Save Changes" />
+              </form>
+              <button value="Cancel" />
+            </div>
           </ul>
         </div>
       </div>

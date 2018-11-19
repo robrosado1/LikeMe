@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
-
   }
 
   render() {
@@ -21,7 +20,7 @@ class Navbar extends React.Component {
             <div className="navbar-links">
               <Link to={`/users/${this.props.currentUser.id}/wall`}>{this.props.currentUser.fname}</Link>
               <Link to={`/users/${this.props.currentUser.id}/newsfeed`}>Home</Link>
-              <Link to={`/users/`}>Find Friends</Link>
+              <Link to={`/search/`}>Find Friends</Link>
             </div>
             <div className="navbar-buttons">
               <Link to={`/users/${this.props.currentUser.id}/friend-list`}>Friends List</Link>
