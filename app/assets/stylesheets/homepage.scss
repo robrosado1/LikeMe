@@ -88,12 +88,15 @@
 }
 //Main content on HomePage:
 .main-content {
+  width: 980px;
+  padding: 0 5px;
+  min-height: 543px;
+  margin: 0 auto;}
+
+.homepage-content-box {
   display: flex;
   flex-direction: row;
-  width: 980px;
-  height: 543px;
-  margin: 0 auto;
-  padding: 20px 5px;
+  padding: 20px 0px;
 }
 
 .main-right {
