@@ -29,3 +29,5 @@ const Wall = (props) => {
 };
 
 export default connect(mapStateToProps)(Wall);
+
+// <Route path="/users" component={Headboard} inherited={ props.match }/>
