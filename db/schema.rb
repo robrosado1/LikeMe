@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_15_141929) do
+ActiveRecord::Schema.define(version: 2018_11_19_032831) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,9 +19,10 @@ ActiveRecord::Schema.define(version: 2018_11_15_141929) do
     t.text "body", null: false
     t.integer "commenter_id", null: false
     t.string "commentable_type", null: false
-    t.integer "commentable_id", null: false
+    t.bigint "commentable_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type"
     t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
     t.index ["commenter_id"], name: "index_comments_on_commenter_id"
   end
@@ -53,8 +54,10 @@ ActiveRecord::Schema.define(version: 2018_11_15_141929) do
     t.datetime "updated_at", null: false
     t.string "fname", default: "New"
     t.string "lname"
-    t.date "birthdate"
     t.string "gender"
+    t.integer "birthyear"
+    t.integer "birthday"
+    t.string "birthmonth"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["session_token"], name: "index_users_on_session_token", unique: true
   end
