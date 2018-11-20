@@ -6,8 +6,13 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
   attr_reader :password
 
-  has_many :posts,
+  has_many :authored_posts,
     foreign_key: :author_id,
+    primary_key: :id,
+    class_name: :Post
+
+  has_many :wall_posts,
+    foreign_key: :receiver_id,
     primary_key: :id,
     class_name: :Post
 

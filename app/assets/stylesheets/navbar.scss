@@ -11,13 +11,22 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding: 10px 0;
+}
+
+.navbar-search input {
+  background-color: #fff;
+  width: 388px;
+  height: 23px;
+  padding-right: 5px;
 }
 
 .navbar-navigation {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 
-.navbar-buttons button, .navbar-buttons Link{
+.navbar-buttons button, .navbar-buttons a, .navbar-links a {
   color: #fff;
 }

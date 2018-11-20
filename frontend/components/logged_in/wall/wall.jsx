@@ -5,7 +5,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { Route } from 'react-router-dom';
-import { AuthRoute, ProtectedRoute } from '../../util/route_util';
+import { AuthRoute, ProtectedRoute } from '../../../util/route_util';
 import Headboard from './headboard/headboard';
 import AboutContainer from './about/about_container';
 
@@ -17,7 +17,9 @@ const mapStateToProps = (state, { location: { pathname } }) => {
 };
 
 const Wall = (props) => {
-
+  if (props.location.pathname.match(/newsfeed$/)) {
+    return "";
+  }
   return (
     <div className="main-content">
       <div className="wall-content">
