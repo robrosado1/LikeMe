@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter, Redirect } from 'react-router-dom';
+import { withRouter, Redirect, Link } from 'react-router-dom';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -59,6 +59,7 @@ class LoginForm extends React.Component {
                 onChange={this.update('password')}
                 className="login-input"
               />
+            <Link to="/" className="demo-login-link" onClick={this.props.loginDemo}>Demo Login</Link>
             </div>
             <br/>
             <input className="login-submit-button" type="submit" value="Log In" />
