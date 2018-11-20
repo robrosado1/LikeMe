@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import NewsFeed from './newsfeed';
 import { fetchPosts, createPost } from '../../../actions/post_actions';
+import { fetchUsers } from '../../../actions/user_actions';
 
 const mapStateToProps = ({entities: { users, posts }, session}, ownProps) => {
   return ({
@@ -12,7 +13,8 @@ const mapStateToProps = ({entities: { users, posts }, session}, ownProps) => {
 
 const mapDispatchToProps = dispatch => ({
   createPost: post => dispatch(createPost(post)),
-  fetchPosts: () => dispatch(fetchPosts())
+  fetchPosts: () => dispatch(fetchPosts()),
+  fetchUsers: () => dispatch(fetchUsers())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewsFeed);
