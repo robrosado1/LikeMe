@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { monthOptions, dayOptions, yearOptions } from '../../../util/constants';
+import { monthOptions, dayOptions, yearOptions } from '../../../../util/constants';
 
 class AboutBox extends React.Component {
   constructor(props) {
