@@ -26,10 +26,6 @@
   border-radius: 1px;
 }
 
-.wall-link {
-
-}
-
 //Newsfeed:
 .newsfeed-container {
   width: 500px;
@@ -64,6 +60,39 @@
   font-size: 14px;
   color: black;
   padding: 23px 48px 13px 12px;
+  resize: none;
+}
+
+.post-form input {
+  background-color: #4267b2;
+  box-sizing: border-box;
+  height: 28px;
+  width: 100%;
+  font-size: 12px;
+  line-height: 22px;
+  padding: 0 16px;
+  color: #fff;
+  border: 1px solid #4267b2;
+  border-radius: 2px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.post-form input:hover {
+  background-color: #365899;
+  border-color: #365899;
+}
+
+.post-form input:active {
+  background-color: #29487d;
+  border-color: #29487d;
+  transform: scale(.98);
+}
+
+.post-form input:disabled {
+  background-color: #9cb4d8;
+  border-color: #9cb4d8;
+  cursor: default;
 }
 
 .newsfeed-post {
