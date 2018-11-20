@@ -71,6 +71,7 @@ class NewsFeed extends React.Component {
               <label>Make Post</label>
               <textarea placeholder={`What's on your mind, ${this.currentUser.fname}?`}
                 onChange={this.update('body')}></textarea>
+              <input disabled={empty} type="submit" value="Share" />
             </form>
           </div>
           <div className="newsfeed">
