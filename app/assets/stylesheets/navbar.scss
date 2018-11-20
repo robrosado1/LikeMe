@@ -14,6 +14,16 @@
   padding: 10px 0;
 }
 
+.navbar-search {
+  display: flex;
+  flex-direction: row;
+}
+
+.navbar-search a {
+  color: #fff;
+  margin: auto 5px;
+}
+
 .navbar-search input {
   background-color: #fff;
   width: 388px;
