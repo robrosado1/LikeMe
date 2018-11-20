@@ -40,15 +40,26 @@ class LoginpageForm extends React.Component {
   }
 
   render() {
+    let highlight = false;
+    if (this.props.errors.length > 0) {
+      highlight = true;
+    }
     return (
       <div className="loginpage-box">
         <h4 className="loginpage-title">Log in to Likeme</h4>
         <form className="loginpage-form" onSubmit={this.handleSubmit}>
-          <input type="text" value={this.state.email} onChange={this.update('email')} />
-          <input type="password" value={this.state.password} onChange={this.update('password')} />
-          <input type="submit" value="Log In" />
+          <input className={`loginpage-input ${highlight ? 'unfilled' : ''}`}
+            type="email" value={this.state.email}
+            onChange={this.update('email')} placeholder="Email"/>
+          <input className="loginpage-input" type="password" value={this.state.password}
+            onChange={this.update('password')} placeholder="Password"/>
+          <input className="loginpage-button" type="submit" value="Log In" />
         </form>
-        <Link to="/signup">Sign up for Likeme</Link>
+        <span className="loginpage-or">or</span>
+        <div className="loginpage-other">
+          <Link className="create-new-acct" to="/signup">Create New Account</Link>
+          <Link to="/signup" className="loginpage-demo" onClick={this.props.loginDemo}>Demo Login</Link>
+        </div>
       </div>
     )
   }
