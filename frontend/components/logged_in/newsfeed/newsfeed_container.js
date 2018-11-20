@@ -5,7 +5,8 @@ import { fetchPosts, createPost } from '../../../actions/post_actions';
 const mapStateToProps = ({entities: { users, posts }, session}, ownProps) => {
   return ({
     currentUser: users[session.id],
-    posts
+    posts,
+    users
   })
 };
 

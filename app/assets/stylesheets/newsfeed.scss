@@ -13,12 +13,21 @@
   width: 180px;
 }
 
-.wall-link {
+.user-links li, .user-links a, .shortcut-links span, .left-links label,
+  .left-links label, .explore-links li, .explore-links a, .wall-link {
   color: black;
+  margin: 10px 0;
 }
 
-.user-links li, .user-links a {
-  color: black;
+.user-links li:hover, .user-links a:hover, .shortcut-links span:hover,
+  .explore-links li:hover, .explore-links a:hover, .wall-link:hover {
+  background-color: #f5f6f7;
+  border: 1px solid #dddfe2;
+  border-radius: 1px;
+}
+
+.wall-link {
+
 }
 
 //Newsfeed:
@@ -30,8 +39,53 @@
   background-color: #fff;
   border: 1px solid #dddfe2;
   border-radius: 3px;
-  height: 153px;
+  height: auto;
   margin-bottom: 10px;
+}
+
+.post-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-form label {
+  color: #4b4f56;
+  font-size: 12px;
+  background-color: #f5f6f7;
+  border-bottom: 1px solid #dddfe2;
+  border-radius: 2px 2px 0 0;
+  font-weight: 600;
+  padding: 8px;
+}
+
+.post-form textarea {
+  width: inherit;
+  height: 100%;
+  font-size: 14px;
+  color: black;
+  padding: 23px 48px 13px 12px;
+}
+
+.newsfeed-post {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+  padding: 12px;
+  border: 1px solid #dddfe2;
+  border-radius: 3px;
+}
+
+.post-owner {
+  font-size: 14px;
+  font-weight: bold;
+  color: #365899;
+  margin-bottom: 10px;
+}
+
+.post-body {
+  font-size: 14px;
+  color: #1d2129;
 }
 
 //Rigth side:

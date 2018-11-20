@@ -23,10 +23,10 @@ class Navbar extends React.Component {
               <Link to={`/search/`}>Find Friends</Link>
             </div>
             <div className="navbar-buttons">
-              <Link to={`/users/${this.props.currentUser.id}/friend-list`}>Friends List</Link>
-              <button value="Messages">Messages</button>
-              <button value="Notifications">Notifications</button>
-              <button value="Quick Help">Quick Help</button>
+              <Link to={`/users/${this.props.currentUser.id}/friend-list`}><i className="fas fa-user-friends"></i></Link>
+              <button value="Messages"><i className="fab fa-facebook-messenger"></i></button>
+              <button value="Notifications"><i className="fas fa-bell"></i></button>
+              <button value="Quick Help"><i className="fas fa-question-circle"></i></button>
               <button onClick={this.props.logout}>Log Out</button>
             </div>
           </div>

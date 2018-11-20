@@ -19,6 +19,9 @@
   width: 388px;
   height: 23px;
   padding-right: 5px;
+  font-size: 14px;
+  color: black;
+  padding: 0 5px;
 }
 
 .navbar-navigation {
@@ -29,4 +32,7 @@
 
 .navbar-buttons button, .navbar-buttons a, .navbar-links a {
   color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 0 2px;
 }

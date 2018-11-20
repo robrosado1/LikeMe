@@ -11,6 +11,7 @@ class NewsFeed extends React.Component {
       receiver_id: Number(this.props.location.pathname.split("/")[2])
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.users = this.props.users
   }
 
   update(field) {
@@ -67,16 +68,21 @@ class NewsFeed extends React.Component {
         <div className="newsfeed-container">
           <div className="post-form-container">
             <form className="post-form" onSubmit={this.handleSubmit}>
+              <label>Make Post</label>
               <textarea placeholder={`What's on your mind, ${this.currentUser.fname}?`}
                 onChange={this.update('body')}></textarea>
-              <input disabled={empty} type="submit" value="Share" />
             </form>
           </div>
           <div className="newsfeed">
             <span>Newsfeed goes here!</span>
             <ul className="newsfeed-posts">
               {Object.values(this.props.posts).reverse().map(post => (
-                <li key={post.id}>{post.body}</li>
+                <li key={post.id} className="newsfeed-post">
+                  <Link to={`/users/${post.author_id}/wall`} className="post-owner">
+                    {this.users[post.author_id].fname} {this.users[post.author_id].lname}
+                  </Link>
+                  <p className="post-body">{post.body}</p>
+                </li>
               ))}
             </ul>
           </div>
@@ -93,3 +99,6 @@ class NewsFeed extends React.Component {
 }
 
 export default NewsFeed;
+
+
+// <input disabled={empty} type="submit" value="Share" />
