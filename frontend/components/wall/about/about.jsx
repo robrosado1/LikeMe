@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { monthOptions, dayOptions, yearOptions } from '../../../util/constants';
 
 class AboutBox extends React.Component {
@@ -19,86 +20,55 @@ class AboutBox extends React.Component {
       return "";
     }
     return (
-      <div className="about-section">
-        <span>About</span>
-        <div className="about-contact-info">
-          <span>CONTACT INFORMATION</span>
-          <ul>
-            <li>
-              <label>Address</label>
-              <span>Address goes here</span>
-            </li>
-            <li>
-              <label>Email</label>
-              <span
-                className={`info-display ${this.isPageOwner ? 'owned' : ''}`}>
-                {this.pageOwner.email}
-              </span>
-              <div hidden={this.isPageOwner} className="secret">
-                <form className="email-edit-form">
-                  <input type="email" value={this.state.email} placeholder="Email"/>
-                  <input type="submit" value="Save Changes" />
-                </form>
-                <button value="Cancel" />
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div className="about-basic-info">
-          <span>BASIC INFORMATION</span>
-          <ul>
-            <li>
-              <label>Birth Date</label>
-              <span className="info-display" >
-                {this.pageOwner.birthmonth} and {this.pageOwner.birthday}
-              </span>
-              <div hidden={this.isPageOwner} className="secret">
-                <form className="email-edit-form">
-                  <select value="Day" default={this.state.birthday}>
-                    {dayOptions}
-                  </select>
-                  <select value="Month" default={this.state.birthmonth}>
-                    {dayOptions}
-                  </select>
-                  <input type="submit" value="Save Changes" />
-                </form>
-                <button value="Cancel" />
-              </div>
-            </li>
-            <li>
-              <label>Birth Year</label>
-              <span className="">
-                {this.pageOwner.birthyear}
-              </span>
-              <div hidden={this.isPageOwner} className="secret">
-                <form className="email-edit-form">
-                  <select value="Year" default={this.state.birthyear}>
-                    {dayOptions}
-                  </select>
-                  <input type="submit" value="Save Changes" />
-                </form>
-                <button value="Cancel" />
-              </div>
-            </li>
-            <li>
-              <label>Gender</label>
-              <span className="">
-                {this.pageOwner.gender}
-              </span>
-            </li>
-            <div hidden={this.isPageOwner} className="secret">
-              <form className="email-edit-form">
-                <select>
-                  <option disabled={true}>Gender</option>
-                  <option defaultValue="Female" checked={this.state.gender === "Female"}>Female</option>
-                  <option defaultValue="Male" checked={this.state.gender === "Male"}>Male</option>
-                  <option defaultValue="Custom" checked={this.state.gender === "Custom"}>Custom</option>
-                </select>
-                <input type="submit" value="Save Changes" />
-              </form>
-              <button value="Cancel" />
+      <div className="about-box">
+        <Link to={`/users/${this.pageOwner.id}/about`}><h3>About</h3></Link>
+        <div className="about-section">
+          <div className="about-legend">
+            <ul className="legend-list">
+              <li className="list-option">Contact and Basic Info</li>
+            </ul>
+          </div>
+          <div className="about-info">
+            <div className="about-contact-info">
+              <h4>CONTACT INFORMATION</h4>
+              <ul>
+                <li>
+                  <label>Address</label>
+                  <span>Address goes here</span>
+                </li>
+                <li>
+                  <label>Email</label>
+                  <span
+                    className={`info-display ${this.isPageOwner ? 'owned' : ''}`}>
+                    {this.pageOwner.email}
+                  </span>
+                </li>
+              </ul>
             </div>
-          </ul>
+            <div className="about-basic-info">
+              <h4>BASIC INFORMATION</h4>
+              <ul>
+                <li>
+                  <label>Birth Date</label>
+                  <span className="info-display" >
+                    {this.pageOwner.birthmonth} and {this.pageOwner.birthday}
+                  </span>
+                </li>
+                <li>
+                  <label>Birth Year</label>
+                  <span className="">
+                    {this.pageOwner.birthyear}
+                  </span>
+                </li>
+                <li>
+                  <label>Gender</label>
+                  <span className="">
+                    {this.pageOwner.gender}
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     )
