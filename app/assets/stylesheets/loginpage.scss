@@ -1,4 +1,5 @@
-//Loginpage header:
+//signup button in header:
+
 .login-page-signup-button {
   width: 47px;
   height: 26px;
@@ -26,16 +27,126 @@
   background-color: #2b9217;
   border-color: #2b9217;
 }
+
 //Loginpage main block:
 
 .loginpage-box {
   background-color: #fff;
   width: 396px;
-  height: 274px;
+  height: 326px;
   text-align: center;
   border: 1px solid #dddfe2;
   border-radius: 3px;
   padding: 22px 108px 26px;
-  margin: 80px auto auto auto;
+  margin: 60px auto auto auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+//Loginpage header:
+.loginpage-title {
+  color: #1d2129;
+  padding: 18px 0;
+  font-size: 18px;
+  font-weight: normal;
+  margin: 0;
+}
+
+//Loginpage Form:
+.loginpage-form {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #ccd0d5;
+  padding-bottom: 19px;
+}
+
+.loginpage-input {
+  width: 284px;
+  min-height: 22px;
+  font-size: 14px;
+  padding: 5px 8px;
+  background-color: #fff;
+  border: 1px solid #dddfe2;
+  color: #1d2129;
+  margin: 6px 0;
+  text-align: left;
+}
+
+.loginpage-input.unfilled {
+  border-radius: 0px;
+}
+
+.loginpage-button {
+  background-color: #4267b2;
+  border: 1px solid #4267b2;
+  border-radius: 2px;
+  color: #fff;
+  padding: 0 24px;
+  font-size: 14px;
+  width: 252px;
+  font-weight: bold;
+  min-height: 42px;
+  margin: 6px 0;
+}
+
+.loginpage-button:hover {
+  background-color: #365899;
+  border-color: #365899;
+}
+
+.loginpage-button:active {
+  background-color: #29487d;
+  border-color: #29487d;
+  transform: scale(.98);
+}
+
+.loginpage-or {
+  color: #4b4f56;
+  font-size: 12px;
+  background-color: #fff;
+  padding: 0 16px;
+  margin-top: -7px;
+}
+
+//Other buttons:
+.loginpage-other {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 0 0 0;
+}
+
+.create-new-acct {
+  width: 140px;
+  background-color: #42b72a;
+  border-color: #42b72a;
+  border-radius: 2px;
+  border: 1px solid;
+  color: #fff;
+  line-height: 42px;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 0 24px;
+  margin-bottom: 6px;
+}
+
+.create-new-acct:hover {
+  background-color: #36a420;
+  border-color: #36a420;
+}
+
+.create-new-acct:active {
+  background-color: #2b9217;
+  border-color: #2b9217;
+  transform: scale(.98);
+}
+
+.loginpage-demo {
+  margin-top: 6px;
+  color: #365899;
+  font-size: 12px;
+}
+
+.loginpage-demo:hover {
+  text-decoration: underline;
 }
