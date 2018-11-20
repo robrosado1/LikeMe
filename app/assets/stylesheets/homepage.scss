@@ -41,7 +41,7 @@
 .login-form-email-section, .login-form-password-section {
   display: flex;
   flex-direction: column;
-  margin: 10px;
+  margin: 10px 7px;
 }
 
 .login-form-email-label, .login-form-password-label {
@@ -59,8 +59,16 @@
 .login-input {
   background-color: #ffffff;
   border: 1px solid #1a295e;
-  height: 22px;
+  height: 24px;
   width: 150px;
+  box-sizing: border-box;
+}
+
+.demo-login-link {
+  padding: 5px 0 4px;
+  margin: 0;
+  color: #9cb4d8;
+  font-size: 12px;
 }
 
 .login-submit-button {
@@ -72,10 +80,10 @@
   border: 1px solid #1e4981;
   border-radius: 2px;
   height: 22px;
-  padding: 0 5px 0 5px;
+  padding: 0 6px 0 6px;
   align-self: flex-end;
-  margin-bottom: 10px;
-  margin-left: 5px;
+  margin-bottom: 33px;
+  margin-left: 7px;
 }
 
 .login-submit-button:hover {
@@ -115,6 +123,7 @@
   top: 58px;
   padding-bottom: 40px;
   border-bottom: 1px solid lightgray;
+  color: black;
 }
 
 .signup-headline {
@@ -122,6 +131,7 @@
   font-size: 38px;
   position: relative;
   top: 8px;
+  color: black;
 }
 
 .signup-subheadline {
@@ -133,6 +143,7 @@
 }
 
 .homepage-birthdate-header {
+  color: black;
   margin: 5px 0 6px 0;
   font-size: 18px;
   font-weight: normal;
@@ -194,6 +205,7 @@
   padding: 6px 10px 6px 8px;
   margin-right: 9px;
   margin-left: -5px;
+  color: black;
 }
 
 .radio-button-fem, .radio-button-male {
@@ -274,13 +286,8 @@ p {
 }
 
 strong {
+  color: black;
   font-weight: 800;
-}
-
-.homepage-left {
-  height: 378px;
-  min-width: 565px;
-  margin-right: 16px;
 }
 
 .homepage-left h2 {
@@ -289,6 +296,7 @@ strong {
   height: 72px;
   width: 409px;
   padding: 42px 0px 24px 0px;
+  color: black;
 }
 
 .homepage-list-element {
@@ -302,6 +310,7 @@ strong {
 
 .homepage-list-element span {
   margin-left: 5px;
+  color: black;
 }
 
 .homepage-image {
