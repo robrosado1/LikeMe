@@ -23,18 +23,6 @@ class LoginpageForm extends React.Component {
     const user = Object.assign({}, this.state);
     this.props.login(user);
   }
-
-  // renderErrors() {
-  //   return(
-  //     <ul className="login-errors">
-  //       {this.props.errors.map((error, i) => (
-  //         <li key={`error-${i}`}>
-  //           {error}
-  //         </li>
-  //       ))}
-  //     </ul>
-  //   );
-  // }
   componentWillUnmount() {
     this.props.clearErrors();
   }
@@ -66,3 +54,15 @@ class LoginpageForm extends React.Component {
 }
 
 export default LoginpageForm;
+
+// renderErrors() {
+//   return(
+//     <ul className="login-errors">
+//       {this.props.errors.map((error, i) => (
+//         <li key={`error-${i}`}>
+//           {error}
+//         </li>
+//       ))}
+//     </ul>
+//   );
+// }

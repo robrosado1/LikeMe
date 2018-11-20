@@ -8,7 +8,7 @@ class NewsFeed extends React.Component {
     this.state = {
       author_id: this.currentUser.id,
       body: '',
-      receiver_id: this.props.location.pathname.split("/")[2]
+      receiver_id: Number(this.props.location.pathname.split("/")[2])
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -21,11 +21,20 @@ class NewsFeed extends React.Component {
     }
   }
 
-  handleSubmit() {
-    this.props.submitPost(this.state);
+  componentDidMount() {
+    this.props.fetchPosts();
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.createPost(this.state);
   }
 
   render() {
+    let empty = true;
+    if (this.state.body.length > 0) {
+      empty = false;
+    }
     return (
       <div className="newsfeed-page">
 
@@ -60,11 +69,16 @@ class NewsFeed extends React.Component {
             <form className="post-form" onSubmit={this.handleSubmit}>
               <textarea placeholder={`What's on your mind, ${this.currentUser.fname}?`}
                 onChange={this.update('body')}></textarea>
-              <input hidden={true} type="submit" value="Share" />
+              <input disabled={empty} type="submit" value="Share" />
             </form>
           </div>
           <div className="newsfeed">
             <span>Newsfeed goes here!</span>
+            <ul className="newsfeed-posts">
+              {Object.values(this.props.posts).reverse().map(post => (
+                <li key={post.id}>{post.body}</li>
+              ))}
+            </ul>
           </div>
         </div>
 
