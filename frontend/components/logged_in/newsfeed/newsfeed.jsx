@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 class NewsFeed extends React.Component {
   constructor(props) {
     super(props);
+    debugger
     this.currentUser = this.props.currentUser;
     this.state = {
       author_id: this.currentUser.id,
@@ -11,7 +12,6 @@ class NewsFeed extends React.Component {
       receiver_id: Number(this.props.location.pathname.split("/")[2])
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.users = this.props.users
   }
 
   update(field) {
@@ -36,16 +36,18 @@ class NewsFeed extends React.Component {
     if (this.state.body.length > 0) {
       empty = false;
     }
+    // console.log(this.props.users);
+    // console.log(this.props.posts);
     return (
       <div className="newsfeed-page">
 
         <div className="left-links">
-          <Link className="wall-link" to={`users/${this.currentUser.id}/wall`}>
+          <Link className="wall-link" to={`/users/${this.currentUser.id}/wall`}>
             {this.currentUser.fname} {this.currentUser.lname}
           </Link>
           <ul className="user-links">
             <li>
-              <Link to={`users/${this.currentUser.id}/newsfeed`}>News Feed</Link>
+              <Link to={`/users/${this.currentUser.id}/newsfeed`}>News Feed</Link>
             </li>
             <li>Messenger</li>
             <li>Watch</li>
@@ -80,7 +82,7 @@ class NewsFeed extends React.Component {
               {Object.values(this.props.posts).reverse().map(post => (
                 <li key={post.id} className="newsfeed-post">
                   <Link to={`/users/${post.author_id}/wall`} className="post-owner">
-                    {this.users[post.author_id].fname} {this.users[post.author_id].lname}
+                    {this.props.users[post.author_id].fname} {this.props.users[post.author_id].lname}
                   </Link>
                   <p className="post-body">{post.body}</p>
                 </li>

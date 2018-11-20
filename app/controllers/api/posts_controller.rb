@@ -16,6 +16,7 @@ class Api::PostsController < ApplicationController
 
   def index
     @posts = Post.all.includes(:author, :receiver)
+    @users = User.all
     render :index
   end
 

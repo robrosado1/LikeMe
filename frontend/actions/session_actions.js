@@ -27,20 +27,24 @@ export const clearErrors = () => ({
 
 export const signup = user => dispatch => (
   APIUtil.signup(user).then(user => {
-
     return dispatch(receiveCurrentUser(user))
   }, err => {
-
     return dispatch(receiveErrors(err.responseJSON))
   })
 );
 
 export const login = user => dispatch => (
   APIUtil.login(user).then(user => {
-
     return dispatch(receiveCurrentUser(user))
   }, err => {
+    return dispatch(receiveErrors(err.responseJSON))
+  })
+);
 
+export const loginDemo = () => dispatch => (
+  APIUtil.login({email: 'demo_email@free.trial', password: 'gobbletyguck'}).then(user => {
+    return dispatch(receiveCurrentUser(user))
+  }, err => {
     return dispatch(receiveErrors(err.responseJSON))
   })
 );

@@ -3,6 +3,6 @@ json.extract! user, :id, :email, :fname, :lname, :birthday, :birthmonth,
 
 json.set! 'post_ids' do
   json.array! user.authored_posts do |post|
-    json.id post.id
+    post.id
   end
 end

@@ -8,6 +8,7 @@ class LoginpageForm extends React.Component {
       email: '',
       password: ''
     };
+    this.highlight = false;
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -23,20 +24,25 @@ class LoginpageForm extends React.Component {
     const user = Object.assign({}, this.state);
     this.props.login(user);
   }
+
+  componentDidMount() {
+    if (this.props.errors.length > 0) {
+      this.highlight = true;
+    }
+    this.props.clearErrors();
+  }
+
   componentWillUnmount() {
     this.props.clearErrors();
   }
 
   render() {
-    let highlight = false;
-    if (this.props.errors.length > 0) {
-      highlight = true;
-    }
+
     return (
       <div className="loginpage-box">
         <h4 className="loginpage-title">Log in to Likeme</h4>
         <form className="loginpage-form" onSubmit={this.handleSubmit}>
-          <input className={`loginpage-input ${highlight ? 'unfilled' : ''}`}
+          <input className={`loginpage-input ${this.highlight ? 'unfilled' : ''}`}
             type="email" value={this.state.email}
             onChange={this.update('email')} placeholder="Email"/>
           <input className="loginpage-input" type="password" value={this.state.password}

@@ -11,9 +11,9 @@ class SignupForm extends React.Component {
         lname: '',
         email: '',
         password: '',
-        birthday: '',
-        birthmonth: '',
-        birthyear: '',
+        birthday: 1,
+        birthmonth: 'January',
+        birthyear: 2018,
         gender: ''
       },
       errors: {
@@ -33,6 +33,7 @@ class SignupForm extends React.Component {
   }
 
   update(field) {
+    debugger
     let toBeChanged = Object.assign({}, this.state.form);
     return e => {
       toBeChanged[field] = e.target.value;
@@ -60,7 +61,7 @@ class SignupForm extends React.Component {
     this.setState({
       errors: newState
     });
-
+    debugger
     if (shouldSubmit) {
       const user = Object.assign({}, this.state.form);
 
