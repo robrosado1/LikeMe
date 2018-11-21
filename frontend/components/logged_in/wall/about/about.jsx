@@ -7,7 +7,6 @@ class AboutBox extends React.Component {
     super(props);
     this.pageOwner = this.props.pageOwner;
     this.state = {info: this.props.pageOwner};
-    debugger
     this.isPageOwner = (this.props.currentUser.id === this.pageOwner.id);
   }
 
@@ -15,7 +14,6 @@ class AboutBox extends React.Component {
   }
 
   render() {
-    debugger
     if (!this.props.location.pathname.match(/about$/)) {
       return "";
     }

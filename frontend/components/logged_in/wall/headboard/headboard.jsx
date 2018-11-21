@@ -9,7 +9,6 @@ class Headboard extends React.Component {
     super(props);
     this.currentUser = this.props.currentUser;
     this.pageOwnerId = Number(this.props.location.pathname.split("/")[2]);
-    debugger
   }
 
   componentDidMount() {
@@ -20,7 +19,6 @@ class Headboard extends React.Component {
     if (Boolean(this.props.location.pathname.match(/newsfeed$/))) {
       return "";
     }
-    debugger
     if (this.props.users[this.pageOwnerId] === undefined) {
       return "";
     }

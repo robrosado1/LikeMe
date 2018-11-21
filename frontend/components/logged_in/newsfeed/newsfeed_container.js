@@ -1,20 +1,10 @@
 import { connect } from 'react-redux';
 import NewsFeed from './newsfeed';
-import { fetchPosts, createPost } from '../../../actions/post_actions';
-import { fetchUsers } from '../../../actions/user_actions';
 
-const mapStateToProps = ({entities: { users, posts }, session}, ownProps) => {
+const mapStateToProps = ({entities: { users }, session}) => {
   return ({
     currentUser: users[session.id],
-    posts,
-    users
   })
 };
 
-const mapDispatchToProps = dispatch => ({
-  createPost: post => dispatch(createPost(post)),
-  fetchPosts: () => dispatch(fetchPosts()),
-  fetchUsers: () => dispatch(fetchUsers())
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(NewsFeed);
+export default connect(mapStateToProps)(NewsFeed);
