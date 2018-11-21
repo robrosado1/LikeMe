@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import CommentForm from './comments/comment_form'
 
 class PostList extends React.Component {
   constructor(props) {
@@ -27,7 +28,7 @@ class PostList extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createPost(this.state);
+    this.props.createPost(this.state.post);
   }
 
   render() {
@@ -38,7 +39,7 @@ class PostList extends React.Component {
     return (
       <div className="newsfeed-container">
         <div className="post-form-container">
-          <form className="post-form" onSubmit={this.handleSubmit}>
+          <form className="post-form" onSubmit={this.handlePostSubmit}>
             <label>Make Post</label>
             <textarea placeholder={`What's on your mind, ${this.currentUser.fname}?`}
               onChange={this.update('body')}></textarea>
@@ -49,28 +50,29 @@ class PostList extends React.Component {
           <span>Newsfeed goes here!</span>
           <ul className="newsfeed-posts">
             {Object.values(this.props.posts).reverse().map(post => {
-              if (this.currentUser.id !== post.author_id) {
+              if (this.currentUser.id !== post.receiver_id) {
                 return "";
               }
               return (
-              <li key={post.id} className="newsfeed-post">
-                <div className="post-window">
-                  <Link to={`/users/${post.author_id}/wall`} className="post-owner">
-                    {this.props.users[post.author_id].fname} {this.props.users[post.author_id].lname}
-                  </Link>
-                  <p className="post-body">{post.body}</p>
-                </div>
-                <div className="bottom-bar">
-                  <div className="comment-block">
-                    <button className="comment-button">
-                      <i className="far fa-comment-alt"></i>
-                      <span className="comment-label">Comment</span>
-                    </button>
-                  </div>
-                </div>
-              </li>
-            );
-          })}
+                  <li key={post.id} className="newsfeed-post">
+                    <div className="post-window">
+                      <Link to={`/users/${post.author_id}/wall`} className="post-owner">
+                        {this.props.users[post.author_id].fname} {this.props.users[post.author_id].lname}
+                      </Link>
+                      <p className="post-body">{post.body}</p>
+                    </div>
+                    <div className="bottom-bar">
+                      <div className="comment-block">
+                        <button className="comment-button">
+                          <i className="far fa-comment-alt"></i>
+                          <span className="comment-label">Comment</span>
+                        </button>
+                      </div>
+                    </div>
+                    <CommentForm type={'Post'} postId={post.id}/>
+                  </li>
+              );
+            })}
           </ul>
         </div>
       </div>

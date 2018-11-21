@@ -60,7 +60,6 @@ class SignupForm extends React.Component {
     this.setState({
       errors: newState
     });
-    debugger
     if (shouldSubmit) {
       const user = Object.assign({}, this.state.form);
 

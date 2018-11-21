@@ -17,6 +17,7 @@ class Api::PostsController < ApplicationController
   def index
     @posts = Post.all
     @users = User.all
+    @comments = Comment.all
     render :index
   end
 

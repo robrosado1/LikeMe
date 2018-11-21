@@ -31,10 +31,11 @@ export const deletePost = postId => dispatch => (
   PostApiUtil.deletePost(postId).then(post => dispatch(removePost(postId)))
 );
 
-const receiveAllPosts = ({ posts, users }) => ({
+const receiveAllPosts = ({ posts, users, comments }) => ({
   type: RECEIVE_ALL_POSTS,
   posts,
-  users
+  users,
+  comments
 });
 
 const receivePost = post => ({
