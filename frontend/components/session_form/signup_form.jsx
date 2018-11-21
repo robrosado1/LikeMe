@@ -33,7 +33,6 @@ class SignupForm extends React.Component {
   }
 
   update(field) {
-    debugger
     let toBeChanged = Object.assign({}, this.state.form);
     return e => {
       toBeChanged[field] = e.target.value;
@@ -161,25 +160,3 @@ class SignupForm extends React.Component {
 }
 
 export default withRouter(SignupForm);
-
-//
-// renderErrors() {
-//   return(
-//     <ul className="signup-errors">
-//       {this.props.errors.map((error, i) => (
-//         <li key={`error-${i}`}>
-//           {error}
-//         </li>
-//       ))}
-//     </ul>
-//   );
-// }
-
-//
-// if (this.props.errors.length > 0 && this.props.errors[0] !== 'Invalid login credentials') {
-//
-//   return (
-//     <Redirect to="/signup" />
-//   );
-//
-// }

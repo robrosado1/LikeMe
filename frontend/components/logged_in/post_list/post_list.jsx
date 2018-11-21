@@ -54,12 +54,22 @@ class PostList extends React.Component {
               }
               return (
               <li key={post.id} className="newsfeed-post">
-                <Link to={`/users/${post.author_id}/wall`} className="post-owner">
-                  {this.props.users[post.author_id].fname} {this.props.users[post.author_id].lname}
-                </Link>
-                <p className="post-body">{post.body}</p>
+                <div className="post-window">
+                  <Link to={`/users/${post.author_id}/wall`} className="post-owner">
+                    {this.props.users[post.author_id].fname} {this.props.users[post.author_id].lname}
+                  </Link>
+                  <p className="post-body">{post.body}</p>
+                </div>
+                <div className="bottom-bar">
+                  <div className="comment-block">
+                    <button className="comment-button">
+                      <i className="far fa-comment-alt"></i>
+                      <span className="comment-label">Comment</span>
+                    </button>
+                  </div>
+                </div>
               </li>
-            )
+            );
           })}
           </ul>
         </div>
