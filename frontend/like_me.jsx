@@ -4,7 +4,8 @@ import configureStore from './store/store';
 import Root from './components/root';
 import { login, logout } from './actions/session_actions';
 import { edit } from './actions/user_actions';
-import { fetchPosts, fetchPost, createPost } from './actions/post_actions'
+import { fetchPosts, fetchPost, createPost } from './actions/post_actions';
+import { createComment, fetchComment } from './actions/comment_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -27,6 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
   window.fetchPosts = fetchPosts;
   window.fetchPost = fetchPost;
   window.createPost = createPost;
+  window.createComment = createComment;
+  window.fetchComment = fetchComment;
   //TESTING END
 
   const root = document.getElementById('root');
