@@ -40,7 +40,7 @@ const NewsFeed = (props) => {
 
         <div className="ads">
           <div className="stories">
-            <span>Stories here</span>
+            <span className="stories-header">Stories</span>
           </div>
         </div>
       </div>
