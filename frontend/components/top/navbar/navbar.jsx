@@ -1,10 +1,28 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      snippet: ''
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  update() {
+    return e => {
+      this.setState({
+        snippet: e.target.value
+      });
+    }
+  }
+
+  handleSubmit(e){
+    e.preventDefault();
+    // this.props.submitSearch(this.state.snippet);
+    this.props.history.push("/users/search")
   }
 
   render() {
@@ -14,9 +32,13 @@ class Navbar extends React.Component {
         <div className="navbar-group">
           <div className="navbar-search">
             <Link to={`/users/${this.props.currentUser.id}/newsfeed`}>Lm</Link>
-            <form className="search-form">
-              <input type="search" placeholder="Search"></input>
-              <button></button>
+            <form className="search-form" onSubmit={this.handleSubmit}>
+              <div className="search-elements">
+                <input onChange={this.update()} type="text" placeholder="Search"></input>
+                <button className="search-button" type="submit" onClick={this.handleSubmit}>
+                  <i className="fas fa-search"></i>
+                </button>
+              </div>
             </form>
           </div>
           <div className="navbar-navigation">
@@ -39,4 +61,4 @@ class Navbar extends React.Component {
   }
 }
 
-export default Navbar;
+export default withRouter(Navbar);
