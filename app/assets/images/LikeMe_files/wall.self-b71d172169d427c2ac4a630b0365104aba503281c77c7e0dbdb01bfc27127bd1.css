@@ -1,0 +1,5 @@
+/* line 1, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/wall.scss */
+.wall-content {
+  display: flex;
+  flex-direction: column;
+}
