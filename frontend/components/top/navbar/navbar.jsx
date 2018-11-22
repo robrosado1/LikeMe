@@ -21,7 +21,8 @@ class Navbar extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    // this.props.submitSearch(this.state.snippet);
+    debugger
+    this.props.submitSearch(this.state.snippet);
     this.props.history.push("/users/search")
   }
 
