@@ -5,6 +5,7 @@ import { monthOptions, dayOptions, yearOptions } from '../../../../util/constant
 class AboutBox extends React.Component {
   constructor(props) {
     super(props);
+    debugger
     this.pageOwner = this.props.pageOwner;
     this.state = {info: this.props.pageOwner};
     this.isPageOwner = (this.props.currentUser.id === this.pageOwner.id);
@@ -19,7 +20,10 @@ class AboutBox extends React.Component {
     }
     return (
       <div className="about-box">
-        <Link to={`/users/${this.pageOwner.id}/about`}><h3>About</h3></Link>
+        <div className="about-header">
+          <i className="fas fa-user"></i>
+          <Link to={`/users/${this.pageOwner.id}/about`}><h3>About</h3></Link>
+        </div>
         <div className="about-section">
           <div className="about-legend">
             <ul className="legend-list">

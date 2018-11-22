@@ -11,5 +11,3 @@ const PageTop = () => (
 );
 
 export default PageTop;
-
-// <ProtectedRoute path="/users" component={NavbarContainer} />
