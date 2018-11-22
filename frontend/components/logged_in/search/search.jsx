@@ -3,17 +3,25 @@ import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const SearchResults = (props) => (
-  <div className="search-box">
-    <div className="search-header">
-      <span>People</span>
+  <div className="search-page">
+    <div className="filters">
     </div>
-    <ul className="list-of-people">
-      {props.matches.map(user => (
-        <Link to={`/users/${user.id}/wall`}>
-          <span>{user.fname} {user.lname}</span>
-        </Link>
-      ))}
-    </ul>
+    <div className="search-box">
+      <div className="search-header">
+        <span className="people-text">People</span>
+      </div>
+      <ul className="list-of-people">
+        {props.matches.map(user => (
+          <li className="person" key={`link-${user.id}`}>
+            <Link to={`/users/${user.id}/wall`}>
+              <span className="person-name">{user.fname} {user.lname}</span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div className="languages">
+    </div>
   </div>
 );
 

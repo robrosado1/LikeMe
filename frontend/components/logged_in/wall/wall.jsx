@@ -8,6 +8,7 @@ import { Route, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../../../util/route_util';
 import Headboard from './headboard/headboard';
 import AboutContainer from './about/about_container';
+import PostList from '../post_list/post_list';
 
 const mapStateToProps = (state, { location: { pathname } }) => {
 
@@ -23,9 +24,9 @@ const Wall = (props) => {
   return (
     <div className="main-content">
       <div className="wall-content">
-
         <Route path="/users" component={Headboard} inherited={ props.match }/>
         <Route exact path="/users/:userId/about" component={AboutContainer} />
+        <Route exact path="/users/:userId/wall" component={PostList} />
       </div>
     </div>
   );

@@ -11,6 +11,3 @@ const App = () => (
 );
 
 export default App;
-
-
-// <ProtectedRoute path="/users/:userId/" component={Headboard} />
