@@ -6,28 +6,31 @@ const NewsFeed = (props) => {
 
     return (
       <div className="newsfeed-page">
-
         <div className="left-links">
-          <Link className="wall-link" to={`/users/${props.currentUser.id}/wall`}>
-            {props.currentUser.fname} {props.currentUser.lname}
-          </Link>
           <ul className="user-links">
-            <li>
-              <Link to={`/users/${props.currentUser.id}/newsfeed`}>News Feed</Link>
-            </li>
+            <Link className="wall-link" to={`/users/${props.currentUser.id}/wall`}>
+              <li className="wall-link-box">
+                <span>{props.currentUser.fname} {props.currentUser.lname}</span>
+              </li>
+            </Link>
+            <Link to={`/users/${props.currentUser.id}/newsfeed`}>
+              <li>
+                News Feed
+              </li>
+            </Link>
             <li>Messenger</li>
             <li>Watch</li>
             <li>Marketplace</li>
-          </ul>
-          <label>Shortcuts</label>
-          <ul className="shortcut-links">
-            <li><span>Community</span></li>
-          </ul>
-          <label>Explore</label>
-          <ul className="explore-links">
+            <label>Shortcuts</label>
+            <li>Community</li>
+            <label>Explore</label>
             <li>Pages</li>
             <li>Events</li>
-            <li><Link to="">Friend Lists</Link></li>
+            <Link to="">
+              <li>
+                Friend Lists
+              </li>
+            </Link>
             <li>Live Video</li>
             <li>Games</li>
           </ul>

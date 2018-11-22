@@ -1,3 +1,4 @@
+/* line 1, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/newsfeed.scss */
 .newsfeed-page {
   width: 1012px;
   margin: 0 auto;
@@ -8,17 +9,18 @@
   padding-top: 12px;
 }
 
-//Left side:
+/* line 12, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/newsfeed.scss */
 .left-links {
   width: 180px;
 }
 
-
+/* line 17, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/newsfeed.scss */
 .user-links {
   display: flex;
   flex-direction: column;
 }
 
+/* line 22, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/newsfeed.scss */
 .user-links li, .user-links a {
   font-weight: normal;
   color: #1d2129;
@@ -32,31 +34,33 @@
   vertical-align: -webkit-baseline-middle;
 }
 
+/* line 35, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/newsfeed.scss */
 .left-links label {
   font-size: 13px;
   color: #616770;
   line-height: 17px;
   padding: 4px 0;
   font-weight: 600;
-
 }
 
+/* line 44, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/newsfeed.scss */
 .user-links li:hover, .user-links a:hover {
   background-color: #f5f6f7;
   border: 1px solid #dddfe2;
   border-radius: 1px;
 }
 
-//Newsfeed:
+/* line 51, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/newsfeed.scss */
 .newsfeed-container {
   width: 500px;
 }
 
-//Rigth side:
+/* line 56, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/newsfeed.scss */
 .ads {
   width: 284px;
 }
 
+/* line 60, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/newsfeed.scss */
 .stories {
   padding: 12px;
   height: 92px;

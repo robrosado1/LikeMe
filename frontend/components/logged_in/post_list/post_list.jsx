@@ -28,7 +28,8 @@ class PostList extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createPost(this.state.post);
+    this.props.createPost(this.state);
+    this.setState({ body: '' });
   }
 
   render() {
@@ -39,38 +40,38 @@ class PostList extends React.Component {
     return (
       <div className="newsfeed-container">
         <div className="post-form-container">
-          <form className="post-form" onSubmit={this.handlePostSubmit}>
-            <label>Make Post</label>
+          <form className="post-form" onSubmit={this.handleSubmit}>
+            <label><i className="fas fa-pencil-alt"></i> Make Post</label>
             <textarea placeholder={`What's on your mind, ${this.currentUser.fname}?`}
-              onChange={this.update('body')}></textarea>
+              onChange={this.update('body')} value={this.state.body}></textarea>
             <input disabled={empty} type="submit" value="Share" />
           </form>
         </div>
         <div className="newsfeed">
-          <span>Newsfeed goes here!</span>
+          <span className="posts-header">Posts</span>
           <ul className="newsfeed-posts">
             {Object.values(this.props.posts).reverse().map(post => {
               if (this.currentUser.id !== post.receiver_id) {
                 return "";
               }
               return (
-                  <li key={post.id} className="newsfeed-post">
-                    <div className="post-window">
-                      <Link to={`/users/${post.author_id}/wall`} className="post-owner">
-                        {this.props.users[post.author_id].fname} {this.props.users[post.author_id].lname}
-                      </Link>
-                      <p className="post-body">{post.body}</p>
+                <li key={post.id} className="newsfeed-post">
+                  <div className="post-window">
+                    <Link to={`/users/${post.author_id}/wall`} className="post-owner">
+                      {this.props.users[post.author_id].fname} {this.props.users[post.author_id].lname}
+                    </Link>
+                    <p className="post-body">{post.body}</p>
+                  </div>
+                  <div className="bottom-bar">
+                    <div className="comment-block">
+                      <button className="comment-button">
+                        <i className="far fa-comment-alt"></i>
+                        <span className="comment-label">Comment</span>
+                      </button>
                     </div>
-                    <div className="bottom-bar">
-                      <div className="comment-block">
-                        <button className="comment-button">
-                          <i className="far fa-comment-alt"></i>
-                          <span className="comment-label">Comment</span>
-                        </button>
-                      </div>
-                    </div>
-                    <CommentForm type={'Post'} postId={post.id}/>
-                  </li>
+                  </div>
+                  <CommentForm type={'Post'} postId={post.id}/>
+                </li>
               );
             })}
           </ul>

@@ -1,0 +1,371 @@
+/* line 2, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/homepage.scss */
+#root {
+  background-color: #edf0f5;
+}
+
+/* line 7, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/homepage.scss */
+.header {
+  width: 100%;
+  height: 82px;
+  background-color: #44579b;
+  background-image: linear-gradient(#456ba6, #325a9c);
+  border-bottom: 1px solid #293586;
+}
+
+/* line 15, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/homepage.scss */
+.header-storage {
+  width: 980px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* line 23, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/homepage.scss */
+.loggedout-header {
+  margin: 25px 0;
+}
+
+/* line 27, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/homepage.scss */
+.app-name {
+  color: #ffffff;
+  margin-top: 0;
+  font-family: 'Muli', sans-serif;
+  font-size: 36px;
+}
+
+/* line 35, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/homepage.scss */
+.login-form-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* line 41, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/homepage.scss */
+.login-form-email-section, .login-form-password-section {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 7px;
+}
+
+/* line 47, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/homepage.scss */
+.login-form-email-label, .login-form-password-label {
+  color: #f0f4f8;
+  font-family: sans-serif;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+/* line 54, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/homepage.scss */
+.login-form {
+  display: flex;
+  flex-direction: row;
+}
+
+/* line 59, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/homepage.scss */
+.login-input {
+  background-color: #ffffff;
+  border: 1px solid #1a295e;
+  height: 24px;
+  width: 150px;
+  box-sizing: border-box;
+  font-size: 12px;
+  padding: 3px;
+  color: black;
+}
+
+/* line 70, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/homepage.scss */
+.demo-login-link {
+  padding: 5px 0 4px;
+  margin: 0;
+  color: #9cb4d8;
+  font-size: 12px;
+  width: fit-content;
+}
+
+/* line 78, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/homepage.scss */
+.demo-login-link:hover {
+  text-decoration: underline;
+}
+
+/* line 82, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/homepage.scss */
+.login-submit-button {
+  background-color: #3668b8;
+  box-sizing: content-box;
+  font-size: 12px;
+  color: #ffffff;
+  font-weight: 700;
+  border: 1px solid #1e4981;
+  border-radius: 2px;
+  height: 22px;
+  padding: 0 6px 0 6px;
+  align-self: flex-end;
+  margin-bottom: 33px;
+  margin-left: 7px;
+}
+
+/* line 97, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/homepage.scss */
+.login-submit-button:hover {
+  background-color: #365899;
+  border: 1px solid #29487d;
+}
+
+/* line 102, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/homepage.scss */
+.login-submit-button:active {
+  background-color: #1e4981;
+}
+
+/* line 106, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/homepage.scss */
+.main-content {
+  width: 980px;
+  padding: 0 5px;
+  min-height: 543px;
+  margin: 0 auto;
+}
+
+/* line 112, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/homepage.scss */
+.homepage-content-box {
+  display: flex;
+  flex-direction: row;
+  padding: 20px 0px;
+}
+
+/* line 118, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/homepage.scss */
+.main-right {
+  height: 545px;
+  width: 399px;
+}
+
+/* line 124, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/homepage.scss */
+.signup-form-container {
+  height: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  position: relative;
+  top: 58px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid lightgray;
+  color: black;
+}
+
+/* line 137, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/homepage.scss */
+.signup-headline {
+  font-family: 'Mukta', sans-serif;
+  font-size: 38px;
+  position: relative;
+  top: 8px;
+  color: black;
+}
+
+/* line 145, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/homepage.scss */
+.signup-subheadline {
+  font-weight: 300;
+  font-size: 20px;
+  height: 23px;
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+/* line 153, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/homepage.scss */
+.homepage-birthdate-header {
+  color: black;
+  margin: 5px 0 6px 0;
+  font-size: 18px;
+  font-weight: normal;
+}
+
+/* line 160, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/homepage.scss */
+.signup-input {
+  background-color: #ffffff;
+  border: 1px solid #bbc7d9;
+  border-radius: 5px;
+  padding: 8px 10px;
+  width: 399px;
+  box-sizing: border-box;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+/* line 171, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/homepage.scss */
+.signup-form-name-section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -5px;
+}
+
+/* line 177, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/homepage.scss */
+.signup-form-name-section,
+.signup-form-email-section,
+.signup-form-password-section {
+  margin-bottom: -6px;
+}
+
+/* line 183, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/homepage.scss */
+.signup-name-input {
+  background-color: #ffffff;
+  border: 1px solid #bbc7d9;
+  border-radius: 5px;
+  padding: 8px 10px;
+  box-sizing: content-box;
+  font-size: 18px;
+  font-weight: 400;
+  width: 172px;
+}
+
+/* line 194, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/homepage.scss */
+#month, #day, #year {
+  height: 30px;
+  font-size: 13px;
+  border-color: #bdc7d8;
+}
+
+/* line 200, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/homepage.scss */
+.radio-buttons {
+  padding: 5px;
+  width: 172px;
+  display: flex;
+  flex-direction: row;
+  font-size: 18px;
+  position: relative;
+  top: -10px;
+}
+
+/* line 210, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/homepage.scss */
+.fem-button-group, .male-button-group {
+  display: flex;
+  align-items: baseline;
+  padding: 6px 10px 6px 8px;
+  margin-right: 9px;
+  margin-left: -5px;
+  color: black;
+}
+
+/* line 219, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/homepage.scss */
+.radio-button-fem, .radio-button-male {
+  margin-right: 7px;
+}
+
+/* line 223, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/homepage.scss */
+.unfilled:placeholder-shown {
+  border: 1px solid red;
+}
+
+/* line 226, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/homepage.scss */
+li.unfilled {
+  border: 1px solid red;
+  border-radius: 5px;
+}
+
+/* line 231, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/homepage.scss */
+.signup-name-input:focus, .signup-input:focus {
+  border-color: #bbc7d9;
+}
+
+/* line 235, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/homepage.scss */
+p {
+  font-size: 11px;
+  width: 323px;
+  height: 42px;
+  color: #777;
+  margin: 10px 0 10px 0;
+  position: relative;
+  top: -10px;
+}
+
+/* line 245, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/homepage.scss */
+.signup-submit-button {
+  height: 23px;
+  width: 152px;
+  padding: 7px 20px;
+  margin: 10px 0px 18px 0px;
+  background: linear-gradient(#67ae55, #578843);
+  background-color: #69a74e;
+  box-shadow: inset 0 1px 1px #a4e388;
+  border: 1px solid;
+  border-color: #3b6e22 #3b6e22 #2c5115;
+  border-radius: 5px;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  font-size: 20px;
+  font-weight: 600;
+  font-family: 'Mukta', sans-serif;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* line 267, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/homepage.scss */
+.signup-submit-button:hover {
+  background: linear-gradient(#79bc64, #578843);
+}
+
+/* line 271, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/homepage.scss */
+.demo-login-button {
+  padding: 15px;
+  border-radius: 5px;
+  background-color: #3668b8;
+  border: 1px solid #1e4981;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  top: 13px;
+}
+
+/* line 286, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/homepage.scss */
+.demo-login-button:hover {
+  background-color: #365899;
+  border: 1px solid #29487d;
+}
+
+/* line 293, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/homepage.scss */
+.homepage-left {
+  height: 378px;
+  min-width: 565px;
+  margin-right: 16px;
+}
+
+/* line 299, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/homepage.scss */
+strong {
+  color: black;
+  font-weight: 800;
+}
+
+/* line 304, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/homepage.scss */
+.homepage-left h2 {
+  font-size: 28px;
+  font-family: 'Lato', sans-serif;
+  height: 72px;
+  width: 409px;
+  padding: 42px 0px 24px 0px;
+  color: black;
+}
+
+/* line 313, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/homepage.scss */
+.homepage-list-element {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 56px;
+  padding-bottom: 10px;
+  margin-top: 15px;
+}
+
+/* line 322, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/homepage.scss */
+.homepage-list-element span {
+  margin-left: 5px;
+  color: black;
+}
+
+/* line 327, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/homepage.scss */
+.homepage-image {
+  width: 56px;
+  height: 56px;
+  margin-right: 20px;
+}

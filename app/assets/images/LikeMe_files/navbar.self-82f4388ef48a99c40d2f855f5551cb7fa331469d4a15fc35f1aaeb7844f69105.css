@@ -1,0 +1,55 @@
+/* line 1, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/navbar.scss */
+.navbar {
+  width: 100%;
+  height: 42px;
+  background-color: #4267b2;
+  border-bottom: 1px solid #2a477d;
+}
+
+/* line 8, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/navbar.scss */
+.navbar-group {
+  width: 1012px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+/* line 17, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/navbar.scss */
+.navbar-search {
+  display: flex;
+  flex-direction: row;
+}
+
+/* line 22, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/navbar.scss */
+.navbar-search a {
+  color: #fff;
+  margin: auto 5px;
+}
+
+/* line 27, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/navbar.scss */
+.navbar-search input {
+  background-color: #fff;
+  width: 388px;
+  height: 23px;
+  padding-right: 5px;
+  font-size: 14px;
+  color: black;
+  padding: 0 5px;
+}
+
+/* line 37, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/navbar.scss */
+.navbar-navigation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* line 43, /Users/rob/Desktop/LikeMe/app/assets/stylesheets/navbar.scss */
+.navbar-buttons button, .navbar-buttons a, .navbar-links a {
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 0 2px;
+}
