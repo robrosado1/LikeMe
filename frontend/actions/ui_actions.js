@@ -9,7 +9,7 @@ export const submitSearch = (term) => dispatch => {
 };
 
 const getSearch = (term) => {
-  debugger
+  
   return ({
     type:  GET_SEARCH,
     search: term

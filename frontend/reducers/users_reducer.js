@@ -22,10 +22,10 @@ const usersReducer = (state = {}, action) => {
     case RECEIVE_USER:
       return merge({}, state, { [action.user.id]: action.user });
     case ACKNOWLEDGE_FRIEND_REQUEST:
-      debugger
+      
       return merge({}, state, { pending: [action.request.user2_id] });
     case ACCEPT_FRIEND_REQUEST:
-      debugger
+      
       return merge({}, state, { friend_ids: [action.friendship.user1_id] })
     case REMOVE_FRIEND:
     //CAUTION: Change this to Object of friendships and update this!!!!!

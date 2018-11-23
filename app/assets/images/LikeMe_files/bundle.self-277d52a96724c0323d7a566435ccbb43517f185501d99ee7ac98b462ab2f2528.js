@@ -12501,7 +12501,7 @@ var debugRenderPhaseSideEffects = false;
 // This feature flag can be used to control the behavior:
 var debugRenderPhaseSideEffectsForStrictMode = true;
 
-// To preserve the "Pause on caught exceptions" behavior of the debugger, we
+// To preserve the "Pause on caught exceptions" behavior of the , we
 // replay the begin phase of a failed component inside invokeGuardedCallback.
 var replayFailedUnitOfWorkWithInvokeGuardedCallback = true;
 
@@ -32343,7 +32343,7 @@ var enableHooks = false;
 // This feature flag can be used to control the behavior:
 
 
-// To preserve the "Pause on caught exceptions" behavior of the debugger, we
+// To preserve the "Pause on caught exceptions" behavior of the , we
 // replay the begin phase of a failed component inside invokeGuardedCallback.
 
 
@@ -34957,7 +34957,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 // This feature flag can be used to control the behavior:
 
 
-// To preserve the "Pause on caught exceptions" behavior of the debugger, we
+// To preserve the "Pause on caught exceptions" behavior of the , we
 // replay the begin phase of a failed component inside invokeGuardedCallback.
 
 
