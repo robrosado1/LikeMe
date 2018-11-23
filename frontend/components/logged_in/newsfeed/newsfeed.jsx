@@ -36,7 +36,7 @@ const NewsFeed = (props) => {
           </ul>
         </div>
 
-        <PostListContainer path={ { location } }/>
+        <PostListContainer props={ { location } }/>
 
         <div className="ads">
           <div className="stories">

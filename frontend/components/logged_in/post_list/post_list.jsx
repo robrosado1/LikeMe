@@ -1,15 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import CommentForm from './comments/comment_form'
 
 class PostList extends React.Component {
   constructor(props) {
+    debugger
     super(props);
     this.currentUser = this.props.currentUser;
     this.state = {
       author_id: this.currentUser.id,
       body: '',
-      receiver_id: Number(this.props.path.split("/")[2])
+      receiver_id: Number(this.props.history.location.pathname.split("/")[2])
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -81,4 +82,4 @@ class PostList extends React.Component {
   }
 }
 
-export default PostList;
+export default withRouter(PostList);

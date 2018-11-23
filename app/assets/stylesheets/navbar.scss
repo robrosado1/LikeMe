@@ -77,3 +77,15 @@
   font-weight: bold;
   padding: 0 2px;
 }
+
+.fa-user-friends, .fa-facebook-messenger, .fa-bell, .fa-question-circle {
+  color: #172949;
+}
+
+.fa-user-friends:hover, .fa-facebook-messenger:hover, .fa-bell:hover, .fa-question-circle:hover {
+  color: #0c1425;
+}
+
+.fa-user-friends:active, .fa-facebook-messenger:active, .fa-bell:active, .fa-question-circle:active {
+  color: #fff;
+}

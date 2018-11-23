@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
-import { login, logout } from './actions/session_actions';
-import { edit } from './actions/user_actions';
-import { fetchPosts, fetchPost, createPost } from './actions/post_actions';
+// import { login, logout } from './actions/session_actions';
+import { edit, sendFriendRequest, acceptFriendRequest } from './actions/user_actions';
+// import { fetchPosts, fetchPost, createPost } from './actions/post_actions';
 import { createComment, fetchComment } from './actions/comment_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -25,11 +25,10 @@ document.addEventListener('DOMContentLoaded', () => {
   //TESTING START
   window.getState = store.getState;
   window.dispatch = store.dispatch;
-  window.fetchPosts = fetchPosts;
-  window.fetchPost = fetchPost;
-  window.createPost = createPost;
   window.createComment = createComment;
   window.fetchComment = fetchComment;
+  window.sendFriendRequest = sendFriendRequest;
+  window.acceptFriendRequest = acceptFriendRequest;
   //TESTING END
 
   const root = document.getElementById('root');

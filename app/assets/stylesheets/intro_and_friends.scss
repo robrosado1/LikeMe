@@ -1,0 +1,48 @@
+.wall-container {
+  width: 851px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.intro-and-friends {
+  width: 323px;
+  height: auto;
+}
+
+.intro-box {
+  background-color: #fff;
+  height: 230px;
+  border: 1px solid #dddfe2;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  padding: 12px 12px 4px;
+}
+
+.friends-box {
+  border: 1px solid #dddfe2;
+  border-radius: 3px;
+  background-color: #fff;
+  height: 419px;
+  padding: 12px 12px 4px;
+}
+
+.intro-box span, .friends-box span {
+  font-size: 16px;
+  color: #1c1e21;
+}
+
+.fa-globe-americas::before {
+  color: #3668b8;
+  height: 24px;
+  width: 24px;
+  margin-right: 10px;
+}
+
+.friends-icon::before {
+  color: #ff006a;
+  height: 24px;
+  width: 24px;
+  margin-right: 10px;
+}

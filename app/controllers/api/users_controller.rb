@@ -5,9 +5,8 @@ class Api::UsersController < ApplicationController
 
     if @user.save
       login!(@user)
-      render '/api/users/show'
+      render :show
     else
-
       render json: @user.errors.full_messages, status: 422
     end
   end
@@ -25,7 +24,7 @@ class Api::UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if @user.update(user_params)
-      render '/api/users/show'
+      render :show
     else
 
       render json: @user.errors.full_messages, status: 422
