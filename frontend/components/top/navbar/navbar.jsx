@@ -21,8 +21,10 @@ class Navbar extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    
     this.props.submitSearch(this.state.snippet);
+    this.setState({
+      snippet: ''
+    });
     this.props.history.push("/users/search")
   }
 
@@ -35,7 +37,8 @@ class Navbar extends React.Component {
             <Link to={`/users/${this.props.currentUser.id}/newsfeed`}>Lm</Link>
             <form className="search-form" onSubmit={this.handleSubmit}>
               <div className="search-elements">
-                <input onChange={this.update()} type="text" placeholder="Search"></input>
+                <input onChange={this.update()} type="text" placeholder="Search"
+                  value={this.state.snippet}></input>
                 <button className="search-button" type="submit" onClick={this.handleSubmit}>
                   <i className="fas fa-search"></i>
                 </button>
@@ -46,14 +49,18 @@ class Navbar extends React.Component {
             <div className="navbar-links">
               <Link to={`/users/${this.props.currentUser.id}/wall`}>{this.props.currentUser.fname}</Link>
               <Link to={`/users/${this.props.currentUser.id}/newsfeed`}>Home</Link>
-              <Link to={`/search/`}>Find Friends</Link>
+              <Link to={`/users/search/`}>Find Friends</Link>
             </div>
             <div className="navbar-buttons">
-              <Link to={`/users/${this.props.currentUser.id}/friend-list`}><i className="fas fa-user-friends"></i></Link>
+              <Link to={`/users/${this.props.currentUser.id}/friend-list`}>
+                <i className="fas fa-user-friends nav-friends"></i>
+              </Link>
               <button value="Messages"><i className="fab fa-facebook-messenger"></i></button>
               <button value="Notifications"><i className="fas fa-bell"></i></button>
+            </div>
+            <div className="quick-help">
               <button value="Quick Help"><i className="fas fa-question-circle"></i></button>
-              <button onClick={this.props.logout}>Log Out</button>
+              <button className="logout-button" onClick={this.props.logout}>Log Out</button>
             </div>
           </div>
         </div>

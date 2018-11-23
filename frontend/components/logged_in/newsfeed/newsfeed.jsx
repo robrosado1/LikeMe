@@ -8,31 +8,31 @@ const NewsFeed = (props) => {
       <div className="newsfeed-page">
         <div className="left-links">
           <ul className="user-links">
-            <Link className="wall-link" to={`/users/${props.currentUser.id}/wall`}>
-              <li className="wall-link-box">
+            <li className="left-list-element">
+              <Link className="wall-link" to={`/users/${props.currentUser.id}/wall`}>
                 <span>{props.currentUser.fname} {props.currentUser.lname}</span>
-              </li>
-            </Link>
-            <Link to={`/users/${props.currentUser.id}/newsfeed`}>
-              <li>
+              </Link>
+            </li>
+            <li className="left-list-element to-newsfeed">
+              <Link className="newsfeed-link" to={`/users/${props.currentUser.id}/newsfeed`}>
                 News Feed
-              </li>
-            </Link>
-            <li>Messenger</li>
-            <li>Watch</li>
-            <li>Marketplace</li>
+              </Link>
+            </li>
+            <li className="left-list-element">Messenger</li>
+            <li className="left-list-element">Watch</li>
+            <li className="left-list-element">Marketplace</li>
             <label>Shortcuts</label>
-            <li>Community</li>
+            <li className="left-list-element">Community</li>
             <label>Explore</label>
-            <li>Pages</li>
-            <li>Events</li>
-            <Link to="">
-              <li>
+            <li className="left-list-element">Pages</li>
+            <li className="left-list-element">Events</li>
+            <li className="left-list-element">
+              <Link to="">
                 Friend Lists
-              </li>
-            </Link>
-            <li>Live Video</li>
-            <li>Games</li>
+              </Link>
+            </li>
+            <li className="left-list-element">Live Video</li>
+            <li className="left-list-element">Games</li>
           </ul>
         </div>
 
