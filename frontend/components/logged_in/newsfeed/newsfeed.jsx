@@ -13,8 +13,8 @@ const NewsFeed = (props) => {
                 <span>{props.currentUser.fname} {props.currentUser.lname}</span>
               </Link>
             </li>
-            <li className="left-list-element">
-              <Link to={`/users/${props.currentUser.id}/newsfeed`}>
+            <li className="left-list-element to-newsfeed">
+              <Link className="newsfeed-link" to={`/users/${props.currentUser.id}/newsfeed`}>
                 News Feed
               </Link>
             </li>
