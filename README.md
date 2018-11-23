@@ -12,7 +12,7 @@ https://aa-like-me.herokuapp.com/#/
 * Searching for other users with search term matching
 
 ## Usage
-To use LikeMe simply hop on over to the website and sign up or log in! A demo user is also available for those who would like to try the site before signing up. After loggin in you will be on your newsfeed page ready to go!
+To use LikeMe simply hop on over to the website and sign up or log in! A demo user is also available for those who would like to try the site before signing up. After logging in you will be on your newsfeed page ready to go!
 
 You can post directly to your wall from here or search for other people and post on their walls. Have an ongoing discussion in the comments by typing right into the input field directly underneath every post.
 
