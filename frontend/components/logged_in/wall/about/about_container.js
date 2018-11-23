@@ -3,7 +3,7 @@ import { edit } from '../../../../util/user_api_util';
 import AboutBox from './about';
 
 const mapStateToProps = ({ session, entities: { users } }, ownProps) => {
-  debugger
+  
   const path = window.location.href.split("#")[1];
   const ownerId = path.split("/")[2];
   return ({
