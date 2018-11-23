@@ -23,12 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   //TESTING START
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
-  window.createComment = createComment;
-  window.fetchComment = fetchComment;
-  window.sendFriendRequest = sendFriendRequest;
-  window.acceptFriendRequest = acceptFriendRequest;
   //TESTING END
 
   const root = document.getElementById('root');
