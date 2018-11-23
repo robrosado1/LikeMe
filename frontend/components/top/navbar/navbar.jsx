@@ -53,7 +53,7 @@ class Navbar extends React.Component {
             </div>
             <div className="navbar-buttons">
               <Link to={`/users/${this.props.currentUser.id}/friend-list`}>
-                <i className="fas fa-user-friends"></i>
+                <i className="fas fa-user-friends nav-friends"></i>
               </Link>
               <button value="Messages"><i className="fab fa-facebook-messenger"></i></button>
               <button value="Notifications"><i className="fas fa-bell"></i></button>

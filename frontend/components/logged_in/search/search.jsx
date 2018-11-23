@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 const SearchResults = (props) => (
   <div className="search-page">
     <div className="filters">
+      <span className="filter-results">Filter Results</span>
     </div>
     <div className="search-box">
       <div className="search-header">
@@ -21,6 +22,7 @@ const SearchResults = (props) => (
       </ul>
     </div>
     <div className="languages">
+      <span className="languages-header">Languages</span>
     </div>
   </div>
 );

@@ -8,7 +8,7 @@ const IntroAndFriends = () => (
         <span><i className="fas fa-globe-americas"></i>Intro</span>
       </div>
       <div className="friends-box">
-        <span><i className="fas friends-icon"></i>Friends</span>
+        <span><i className="fas fa-user-friends friends-box-icon"></i>Friends</span>
       </div>
     </div>
     <PostListContainer />
