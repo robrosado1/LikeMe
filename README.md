@@ -11,6 +11,11 @@ https://aa-like-me.herokuapp.com/#/
 * Commenting on posts
 * Searching for other users with search term matching
 
+#### *Coming Soon*
+* *Friending*
+* *Image Uploading*
+* *Instant Messaging*
+
 ## Usage
 To use LikeMe simply hop on over to the website and sign up or log in! A demo user is also available for those who would like to try the site before signing up. After logging in you will be on your newsfeed page ready to go!
 
