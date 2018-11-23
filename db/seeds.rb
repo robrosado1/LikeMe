@@ -13,7 +13,7 @@ Friendship.destroy_all
 
 test_user = {password: 'starwars', email: 'test_email@throwaway.email', fname: 'Lester',
   lname: 'Tester', birthday: 12, birthmonth: 'December', birthyear: 1980, gender: 'Male'}
-demo_user = {password: 'gobbletyguck', email: 'demo_email@free.trial', fname: 'Dem-O',
+demo_user = {password: 'gobbletyguck', email: 'demo_email@free.trial', fname: 'Damaris',
   lname: 'Daggerty', birthday: 4, birthmonth: 'March', birthyear: 1988, gender: 'Female'}
 billy = {password: 'randomness', email: 'silly_billy@funny.guy', fname: 'Billy',
   lname: 'Smith', birthday: 9, birthmonth: 'November', birthyear: 1977, gender: 'Male'}
