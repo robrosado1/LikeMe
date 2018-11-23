@@ -4,11 +4,11 @@
 //rightside - make post, newsfeed/wall-posts
 import React from 'react';
 import { connect } from 'react-redux'
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../../../util/route_util';
 import Headboard from './headboard/headboard';
 import AboutContainer from './about/about_container';
-import PostList from '../post_list/post_list';
+import IntroAndFriends from './intro/intro_and_friends';
 
 const mapStateToProps = (state, { location: { pathname } }) => {
 
@@ -26,12 +26,12 @@ const Wall = (props) => {
       <div className="wall-content">
         <Route path="/users" component={Headboard} inherited={ props.match }/>
         <Route exact path="/users/:userId/about" component={AboutContainer} />
-        <Route exact path="/users/:userId/wall" component={PostList} />
+        <Route exact path="/users/:userId/wall" component={IntroAndFriends}/>
       </div>
     </div>
   );
 };
 
-export default connect(mapStateToProps)(Wall);
+const mspWall = connect(mapStateToProps)(Wall);
 
-// <Route path="/users" component={Headboard} inherited={ props.match }/>
+export default withRouter(mspWall);

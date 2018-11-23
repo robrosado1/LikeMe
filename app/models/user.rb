@@ -21,7 +21,24 @@ class User < ApplicationRecord
     primary_key: :id,
     class_name: :Comment
 
-  has_many :friends
+  has_many :requested_friendships,
+    primary_key: :id,
+    foreign_key: :user1_id,
+    class_name: :Friendship
+
+  has_many :friendees,
+   through: :requested_friendships,
+   source: :acceptor
+
+  has_many :pending_requests,
+    primary_key: :id,
+    foreign_key: :user2_id,
+    class_name: :Friendship
+
+  has_many :frienders,
+    through: :pending_requests,
+    source: :requestor
+
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email);
@@ -41,6 +58,11 @@ class User < ApplicationRecord
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
+  end
+
+  def friends
+    requested = self.requested_friendships.select('user2_id')
+      .where({ user1_id: self.id, pending: false}).to_a
   end
 
   private

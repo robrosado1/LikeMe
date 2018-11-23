@@ -1,3 +1,7 @@
+.headboard {
+  margin-bottom: 10px;
+}
+
 .cover-photo {
   background-color: #1d2129;
   height: 205px;
@@ -20,9 +24,7 @@
   flex-direction: row;
   justify-content: flex-end;
   background-color: white;
-  border-bottom: 1px solid #e9eaed;
-  border-left: 1px solid #e9eaed;
-  border-right: 1px solid #e9eaed;
+  padding-right: 76px;
 }
 
 .headboard-nav {
@@ -39,9 +41,14 @@
   background-color: #f5f6f7;
 }
 
-// .headboard-links li a {
-//   color: #365899;
-// }
+.headboard-navigation {
+      border-left: 1px solid #d1d6da;
+      border-bottom: 1px solid #d1d6da;
+      border-right: 1px solid #d1d6da;
+      border-radius: 3px;
+      width: 850px;
+}
 
-.headboard-links li button {
+.headboard-links button {
+  border-right: 1px solid #e9eaed;
 }
