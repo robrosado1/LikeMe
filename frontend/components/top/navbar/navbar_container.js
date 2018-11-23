@@ -11,7 +11,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-  debugger
+  
   return ({
     logout: () => dispatch(logout()),
     submitSearch: term => dispatch(submitSearch(term))

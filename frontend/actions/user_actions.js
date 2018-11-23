@@ -39,7 +39,7 @@ export const removeFriend = friendshipId => {
 };
 
 const acknowledgeFriendRequest = request => {
-  debugger
+  
   return ({
     type: ACKNOWLEDGE_FRIEND_REQUEST,
     request
@@ -47,7 +47,7 @@ const acknowledgeFriendRequest = request => {
 }
 
 const acceptFriendshipRequest = friendship => {
-  debugger
+  
   return ({
     type: ACCEPT_FRIEND_REQUEST,
     friendship
@@ -79,7 +79,7 @@ export const fetchUsers = () => dispatch => {
 };
 
 export const sendFriendRequest = friendship => dispatch => {
-  debugger
+  
   FriendshipAPIUtil.sendFriendRequest(friendship).then( request => {
     return dispatch(acknowledgeFriendRequest(request));
   }, err => {
@@ -88,7 +88,7 @@ export const sendFriendRequest = friendship => dispatch => {
 };
 
 export const acceptFriendRequest = friendship => dispatch => {
-  debugger
+  
   FriendshipAPIUtil.acceptFriendRequest(friendship).then( request => {
     return dispatch(acceptFriendshipRequest(request));
   }, err => {
