@@ -78,14 +78,51 @@
   padding: 0 2px;
 }
 
-.fa-user-friends, .fa-facebook-messenger, .fa-bell, .fa-question-circle {
+.nav-friends, .fa-facebook-messenger, .fa-bell, .fa-question-circle {
   color: #172949;
+  font-size: 20px;
 }
 
-.fa-user-friends:hover, .fa-facebook-messenger:hover, .fa-bell:hover, .fa-question-circle:hover {
+.nav-friends:hover, .fa-facebook-messenger:hover, .fa-bell:hover, .fa-question-circle:hover {
   color: #0c1425;
 }
 
-.fa-user-friends:active, .fa-facebook-messenger:active, .fa-bell:active, .fa-question-circle:active {
+.nav-friends:active, .fa-facebook-messenger:active, .fa-bell:active, .fa-question-circle:active {
   color: #fff;
+}
+.navbar-links {
+  height: 21px;
+}
+
+.navbar-links a {
+  padding: 3.5px 12px;
+}
+
+.navbar-links a:hover {
+  background-color: #3a5fa3;
+  border-radius: 2px;
+}
+
+.fa-facebook-messenger {
+  padding: 0 8px;
+}
+
+.navbar-buttons, .quick-help {
+  padding: 0 12px;
+}
+
+.navbar-links a, .navbar-buttons {
+  border-right: 1px solid #3a5fa3;
+}
+
+.quick-help {
+  display: flex;
+  justify-content: center;
+}
+
+.logout-button {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  padding-left: 8px;
 }

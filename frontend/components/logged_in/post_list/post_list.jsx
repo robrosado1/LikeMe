@@ -4,7 +4,6 @@ import CommentForm from './comments/comment_form'
 
 class PostList extends React.Component {
   constructor(props) {
-    
     super(props);
     this.currentUser = this.props.currentUser;
     this.state = {
@@ -13,6 +12,8 @@ class PostList extends React.Component {
       receiver_id: Number(this.props.history.location.pathname.split("/")[2])
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleEnter = this.handleEnter.bind(this);
+    this.postToWho = this.postToWho.bind(this);
   }
 
   update(field) {
@@ -33,6 +34,20 @@ class PostList extends React.Component {
     this.setState({ body: '' });
   }
 
+  handleEnter(e) {
+    if (e.keyCode === 13) {
+      this.handleSubmit(e)
+    }
+  }
+
+  postToWho() {
+    if (this.currentUser.id === this.state.receiver_id) {
+      return `What's on your mind, ${this.currentUser.fname}?`;
+    } else {
+      return `Write something to ${this.props.users[this.state.receiver_id].fname}...`;
+    }
+  }
+
   render() {
     let empty = true;
     if (this.state.body.length > 0) {
@@ -43,8 +58,8 @@ class PostList extends React.Component {
         <div className="post-form-container">
           <form className="post-form" onSubmit={this.handleSubmit}>
             <label><i className="fas fa-pencil-alt"></i> Make Post</label>
-            <textarea placeholder={`What's on your mind, ${this.currentUser.fname}?`}
-              onChange={this.update('body')} value={this.state.body}></textarea>
+            <textarea placeholder={this.postToWho()}
+              onChange={this.update('body')} value={this.state.body} onKeyDown={this.handleEnter}></textarea>
             <input disabled={empty} type="submit" value="Share" />
           </form>
         </div>
@@ -52,7 +67,7 @@ class PostList extends React.Component {
           <span className="posts-header">Posts</span>
           <ul className="newsfeed-posts">
             {Object.values(this.props.posts).reverse().map(post => {
-              if (this.currentUser.id !== post.receiver_id) {
+              if (post.receiver_id !== this.state.receiver_id) {
                 return "";
               }
               return (

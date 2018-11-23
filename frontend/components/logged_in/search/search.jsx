@@ -1,10 +1,11 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const SearchResults = (props) => (
   <div className="search-page">
     <div className="filters">
+      <span className="filter-results">Filter Results</span>
     </div>
     <div className="search-box">
       <div className="search-header">
@@ -21,23 +22,24 @@ const SearchResults = (props) => (
       </ul>
     </div>
     <div className="languages">
+      <span className="languages-header">Languages</span>
     </div>
   </div>
 );
 
 const mapStateToProps = ({ entities: { users }, ui}, ownProps) => {
-  
+
   const regexp = new RegExp(ui.search, 'gi');
   const matches = [];
   Object.values(users).forEach(user => {
-    
+
     if (user.fname.match(regexp) === null) {
       matches.concat([]);
     } else {
       matches.push(user);
     }
   });
-  
+
   return ({
     users,
     matches

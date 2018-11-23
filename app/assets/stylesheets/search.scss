@@ -11,14 +11,25 @@
   width: 180px;
   height: auto;
   margin: 10px 0;
-  background-color: #fff;
+}
+
+.filter-results {
+  color: #4b4f56;
+  font-size: 18px;
 }
 
 .languages {
   background-color: #fff;
   width: 308px;
-  height: auto;
+  height: 58px;
   margin: 10px 0;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.languages-header {
+  font-size: 12px;
+  color: #90949c;
 }
 
 .search-box {
