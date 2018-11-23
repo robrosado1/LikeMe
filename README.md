@@ -7,11 +7,11 @@ https://aa-like-me.herokuapp.com/#/
 
 ## Features
 * User Profiles complete with information *(edits coming soon!)*
-* Posting to user's walls 
+* Visiting and posting to user's walls 
 * Commenting on posts
 * Searching for other users with search term matching
 
-#### *Coming Soon*
+##### *Coming Soon*
 * *Friending*
 * *Image Uploading*
 * *Instant Messaging*
