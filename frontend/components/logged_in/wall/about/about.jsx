@@ -5,7 +5,7 @@ import { monthOptions, dayOptions, yearOptions } from '../../../../util/constant
 class AboutBox extends React.Component {
   constructor(props) {
     super(props);
-    debugger
+    
     this.pageOwner = this.props.pageOwner;
     this.state = {info: this.props.pageOwner};
     this.isPageOwner = (this.props.currentUser.id === this.pageOwner.id);

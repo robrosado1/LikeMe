@@ -26,18 +26,18 @@ const SearchResults = (props) => (
 );
 
 const mapStateToProps = ({ entities: { users }, ui}, ownProps) => {
-  debugger
+  
   const regexp = new RegExp(ui.search, 'gi');
   const matches = [];
   Object.values(users).forEach(user => {
-    debugger
+    
     if (user.fname.match(regexp) === null) {
       matches.concat([]);
     } else {
       matches.push(user);
     }
   });
-  debugger
+  
   return ({
     users,
     matches

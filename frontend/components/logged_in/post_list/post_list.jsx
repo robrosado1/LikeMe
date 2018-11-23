@@ -4,7 +4,7 @@ import CommentForm from './comments/comment_form'
 
 class PostList extends React.Component {
   constructor(props) {
-    debugger
+    
     super(props);
     this.currentUser = this.props.currentUser;
     this.state = {
