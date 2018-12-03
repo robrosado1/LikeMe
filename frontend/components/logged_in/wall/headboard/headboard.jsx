@@ -8,7 +8,7 @@ class Headboard extends React.Component {
   constructor(props) {
     super(props);
     this.currentUser = this.props.currentUser;
-    this.pageOwnerId = Number(this.props.location.pathname.split("/")[2]);
+    this.pageOwnerId = Number(this.props.history.location.pathname.split("/")[2]);
   }
 
   componentDidMount() {
@@ -16,12 +16,13 @@ class Headboard extends React.Component {
   }
 
   render() {
-    if (Boolean(this.props.location.pathname.match(/newsfeed$/))) {
+    if (Boolean(this.props.history.location.pathname.match(/newsfeed$/))) {
       return "";
     }
     if (this.props.users[this.pageOwnerId] === undefined) {
       return "";
     }
+    debugger
     const pageOwner = this.props.users[this.pageOwnerId];
     return (
       <div className="headboard">
@@ -39,7 +40,6 @@ class Headboard extends React.Component {
             <Link className="headboard-nav" to={`/users/${pageOwner.id}/friend-list`}>Friends</Link>
             <Link className="headboard-nav" to={`/users/${pageOwner.id}/photos`}>Photos</Link>
             <Link className="headboard-nav" to={`/users/${pageOwner.id}/stories`}>Archive</Link>
-            <button className="headboard-nav">More</button>
           </ul>
         </div>
       </div>
@@ -59,3 +59,6 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Headboard);
+
+
+// <span className="headboard-nav">More</span>

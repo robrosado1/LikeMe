@@ -41,6 +41,10 @@
   font-weight: 600;
 }
 
+.headboard-nav:last-child {
+  border-right: 1px solid #e9eaed;
+}
+
 .headboard-links Link:hover {
   background-color: #f5f6f7;
 }
@@ -53,6 +57,7 @@
       width: 850px;
 }
 
-.headboard-links button {
+.headboard-links span {
+  display: none;
   border-right: 1px solid #e9eaed;
 }
