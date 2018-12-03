@@ -25,5 +25,3 @@ class Everything extends React.Component {
 };
 
 export default Everything;
-
-// <Route exact path="/users/:userId/newsfeed" component={FeedPage}/>

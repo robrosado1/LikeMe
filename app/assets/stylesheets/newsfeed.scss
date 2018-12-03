@@ -92,10 +92,17 @@
 
 .stories {
   padding: 12px;
-  height: 92px;
+  height: auto;
   border: 1px solid #dddfe2;
   border-radius: 3px;
   background-color: #fff;
+}
+
+.stories p {
+  margin: 0px;
+  margin-top: 10px;
+  width: inherit;
+  height: auto;
 }
 
 .stories-header {

@@ -33,9 +33,7 @@ const mapStateToProps = ({ entities: { users }, ui}, ownProps) => {
   const matches = [];
   Object.values(users).forEach(user => {
 
-    if (user.fname.match(regexp) === null) {
-      matches.concat([]);
-    } else {
+    if (user.fname.match(regexp) !== null) {
       matches.push(user);
     }
   });
@@ -45,7 +43,7 @@ const mapStateToProps = ({ entities: { users }, ui}, ownProps) => {
     matches
   });
 };
-//
+
 // const mapDispatchToProps = dispatch => ({
 //
 // });

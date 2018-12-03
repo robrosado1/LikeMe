@@ -30,6 +30,9 @@ class PostList extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    if (this.state.body.length < 1) {
+      return;
+    }
     this.props.createPost(this.state);
     this.setState({ body: '' });
   }
