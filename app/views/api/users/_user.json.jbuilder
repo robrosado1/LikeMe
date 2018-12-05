@@ -13,6 +13,10 @@ json.friend_ids do
   json.array! user.friends
 end
 
-json.pending_ids do
-  json.array! user.pending
+json.sent do
+  json.array! user.sent_pending
+end
+
+json.received do
+  json.array! user.received_waiting
 end
