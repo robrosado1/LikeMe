@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { AuthRoute } from '../../../util/route_util';
 
 const Topbar = ({ currentUser, logout }) => (
   <div className="loggedout-header">

@@ -22,7 +22,6 @@ class Headboard extends React.Component {
     if (this.props.users[this.pageOwnerId] === undefined) {
       return "";
     }
-    debugger
     const pageOwner = this.props.users[this.pageOwnerId];
     return (
       <div className="headboard">

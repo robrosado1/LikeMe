@@ -1,11 +1,6 @@
-//headboard - Box containing profile pic, name and links for timeline(wall),
-//about, friends, photos, archive(?), and more(dropdown)
-//leftside - intro box, photos box, friends Box
-//rightside - make post, newsfeed/wall-posts
 import React from 'react';
 import { connect } from 'react-redux'
-import { Route, Switch, withRouter } from 'react-router-dom';
-import { AuthRoute, ProtectedRoute } from '../../../util/route_util';
+import { Route, withRouter } from 'react-router-dom';
 import Headboard from './headboard/headboard';
 import AboutContainer from './about/about_container';
 import IntroAndFriends from './intro/intro_and_friends';

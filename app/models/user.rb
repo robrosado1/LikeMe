@@ -21,22 +21,22 @@ class User < ApplicationRecord
     primary_key: :id,
     class_name: :Comment
 
-  has_many :requested_friendships,
+  has_many :sent_friendships,
     primary_key: :id,
     foreign_key: :user1_id,
     class_name: :Friendship
 
   has_many :friendees,
-   through: :requested_friendships,
+   through: :sent_friendships,
    source: :acceptor
 
-  has_many :pending_requests,
+  has_many :received_requests,
     primary_key: :id,
     foreign_key: :user2_id,
     class_name: :Friendship
 
   has_many :frienders,
-    through: :pending_requests,
+    through: :received_requests,
     source: :requestor
 
 
@@ -61,8 +61,27 @@ class User < ApplicationRecord
   end
 
   def friends
-    requested = self.requested_friendships.select('user2_id')
-      .where({ user1_id: self.id, pending: false}).to_a
+    friend_status(false).map do |f|
+      f.user1_id == self.id ? f.user2_id : f.user1_id
+    end
+  end
+
+  def all_pending
+    friend_status(true).map do |f|
+      f.user2_id if f.user1_id == self.id
+    end
+  end
+
+  def sent_pending
+    self.sent_friendships.where(pending: true).map do |f|
+      f.user2_id
+    end
+  end
+
+  def received_waiting
+    self.received_requests.where(pending: true).map do |f|
+      f.user1_id
+    end
   end
 
   private
@@ -73,6 +92,24 @@ class User < ApplicationRecord
 
   def self.generate_session_token
     SecureRandom.urlsafe_base64(16)
+  end
+
+  def friend_status(pending)
+    Friendship.find_by_sql([
+      'SELECT
+        *
+      FROM
+        friendships
+      JOIN
+        users ON users.id = friendships.user1_id
+      JOIN
+        users AS U2 ON U2.id = friendships.user2_id
+      WHERE
+        (users.id = ? OR U2.id = ?) AND friendships.pending = ?',
+      self.id,
+      self.id,
+      pending
+    ])
   end
 
 end

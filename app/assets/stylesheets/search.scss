@@ -64,6 +64,9 @@
 .person {
   padding: 12px;
   border-bottom: 1px solid #ebedf0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .person-name {

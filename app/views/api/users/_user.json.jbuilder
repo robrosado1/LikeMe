@@ -10,7 +10,9 @@ json.comment_ids do
 end
 
 json.friend_ids do
-  json.array! user.friends do |friendship|
-    friendship.user2_id
-  end
+  json.array! user.friends
+end
+
+json.pending_ids do
+  json.array! user.pending
 end
