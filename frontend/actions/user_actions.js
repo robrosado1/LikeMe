@@ -39,7 +39,10 @@ export const removeFriend = friendshipId => {
 };
 
 const acknowledgeFriendRequest = request => {
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
   return ({
     type: ACKNOWLEDGE_FRIEND_REQUEST,
     request
@@ -79,7 +82,10 @@ export const fetchUsers = () => dispatch => {
 };
 
 export const sendFriendRequest = friendship => dispatch => {
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
   FriendshipAPIUtil.sendFriendRequest(friendship).then( request => {
     return dispatch(acknowledgeFriendRequest(request));
   }, err => {
