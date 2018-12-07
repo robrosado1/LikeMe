@@ -1,0 +1,30 @@
+.friend-button {
+  height: 22px;
+  background-color: #f5f6f7;
+  border: 1px solid;
+  border-color: #ccd0d5;
+  color: #4b4f56;
+  border-radius: 2px;
+  box-sizing: content-box;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  padding: 0 8px;
+  vertical-align: middle;
+}
+
+.friend-button:hover {
+  background-color: #ebedf0;
+}
+
+.friend-button:active {
+  transform: scale(.98);
+  background-color: #dddfe2;
+  border-color: #bec3c9;
+}
+
+.accept {
+  background-color: #4267b2;
+  border-color: #4267b2;
+  color: #fff;
+}

@@ -22,17 +22,10 @@ const usersReducer = (state = {}, action) => {
     case RECEIVE_USER:
       return merge({}, state, { [action.user.id]: action.user });
     case ACKNOWLEDGE_FRIEND_REQUEST:
-<<<<<<< Updated upstream
-      
-      return merge({}, state, { pending: [action.request.user2_id] });
-    case ACCEPT_FRIEND_REQUEST:
-      
-      return merge({}, state, { friend_ids: [action.friendship.user1_id] })
-=======
-      const friender = state[action.request.user1_id];
+      const sender = state[action.request.user1_id];
       return merge({}, state, {
         [action.request.user1_id]: {
-          sent: friender.sent.concat(action.request.user2_id)
+          sent: sender.sent.concat(action.request.user2_id)
         }
       });
     case ACCEPT_FRIEND_REQUEST:
@@ -41,7 +34,6 @@ const usersReducer = (state = {}, action) => {
           friend_ids: [action.friendship.user1_id]
         }
       });
->>>>>>> Stashed changes
     case REMOVE_FRIEND:
     //CAUTION: Change this to Object of friendships and update this!!!!!
       const newState = state.friend_ids.slice();

@@ -15,7 +15,8 @@ class FriendButton extends React.Component {
     this.currentUser = this.props.currentUser;
     this.otherUser = this.props.otherUser;
     this.state = {
-      button: "Add Friend"
+      button: "Add Friend",
+      accept: false
     };
   }
 
@@ -24,16 +25,20 @@ class FriendButton extends React.Component {
     e.preventDefault();
 
     if (e.currentTarget.innerHTML === "Add Friend") {
+      debugger
       this.props.sendFriendRequest({
         user1_id: this.currentUser.id,
         user2_id: this.otherUser.id
-      })
+      });
     } else if (e.currentTarget.innerHTML === "Accept Friend Request") {
+      e.currentTarget.classList.remove("accept");
       this.props.acceptFriendRequest({
         user1_id: this.otherUser.id,
         user2_id: this.currentUser.id,
         pending: false
-      })
+      });
+    } else if (e.currentTarget.innerHTML === "Friend Request Sent") {
+
     } else {
       debugger
       // this.props.deleteFriend({
@@ -41,72 +46,61 @@ class FriendButton extends React.Component {
     }
     // debugger
     this.determineFriendStatus(this.currentUser, this.otherUser);
-    debugger
+    // debugger
   }
 
   determineFriendStatus(currUser, otherUser) {
+    debugger
     if (currUser.friend_ids.includes(otherUser.id)) {
-      this.setState((state, props) => ({
+      this.setState({
         button: "Friends"
-      }));
+      });
     } else if (currUser.sent.includes(otherUser.id)) {
-      this.setState((state, props) => ({
+      this.setState({
         button: "Friend Request Sent"
-      }));
+      });
     } else if (currUser.received.includes(otherUser.id)) {
-      this.setState((state, props) => ({
+      this.setState({
         button: "Accept Friend Request"
-      }));
+      });
     } else {
-      this.setState((state, props) => ({
+      this.setState({
         button: "Add Friend"
-      }));
+      });
     }
   }
 
+  // e.currentTarget.classList.add("accept");
   componentDidMount() {
     this.determineFriendStatus(this.currentUser, this.otherUser);
-
-    const buttons = Array.from(document.getElementsByClassName("friend-button"));
-    buttons.forEach( button => {
-      if (button.innerHTML === "Accept Friend Request") {
-        button.classList.add("accept");
-      }
-    });
   }
-  //
+
   // shouldComponentUpdate(nextProps, nextState) {
-  //   const otherUser = this.props.otherUser;
   //   debugger
   //   if (nextProps.currentUser.friend_ids.length !== this.props.currentUser.friend_ids.length) {
-  //     debugger
   //     return true;
   //   } else if (nextProps.currentUser.sent.length !== this.props.currentUser.sent.length) {
-  //     debugger
   //     return true;
   //   } else if (nextProps.currentUser.received.length !== this.props.currentUser.received.length) {
-  //     debugger
   //     return true;
   //   } else {
-  //     debugger
   //     return false;
   //   }
   // }
-  //
+
   // componentDidUpdate(prevProps) {
   //   if (prevProps.currentUser) {
-  //
   //   }
   // }
 
   render() {
+    debugger
     if (this.currentUser.id === this.otherUser.id) {
       return "";
     }
-    const currUser = this.currentUser;
-    const otherUser = this.otherUser;
     return (
-      <button id={`fb-${this.otherUser.id}`} type="button" className="friend-button"
+      <button id={`fb-${this.otherUser.id}`} type="button"
+        className={`friend-button`}
         onClick={this.handleFriending}>
         {this.state.button}
       </button>

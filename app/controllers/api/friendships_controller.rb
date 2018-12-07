@@ -2,7 +2,7 @@ class Api::FriendshipsController < ApplicationController
 
   def create
     @friendship = Friendship.new(friendship_params)
-    
+
     if @friendship.save
       render :show
     else
@@ -11,9 +11,12 @@ class Api::FriendshipsController < ApplicationController
   end
 
   def update
-    
-    @friendship = Friendship.find(params[:id])
-    
+
+    @friendship = Friendship.find_by(
+      user1_id: params[:friendship][:user1_id],
+      user2_id: params[:friendship][:user2_id]
+    )
+
     if @friendship.update(friendship_params)
       render :show
     else

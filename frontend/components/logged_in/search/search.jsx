@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { sendFriendRequest } from '../../../actions/user_actions';
+import { fetchUsers } from '../../../actions/user_actions';
+import FriendButton from '../friend_status/friend_button';
 
 class SearchResults extends React.Component {
   constructor(props) {
@@ -17,6 +18,10 @@ class SearchResults extends React.Component {
       user1_id: this.currentUserId,
       user2_id: friendee
     });
+  }
+
+  componentDidMount() {
+    // this.props.fetchUsers();
   }
 
   render() {
@@ -36,9 +41,7 @@ class SearchResults extends React.Component {
                   <Link to={`/users/${user.id}/wall`}>
                     <span className="person-name">{user.fname} {user.lname}</span>
                   </Link>
-                  <button id={`${user.id}`} type="button" onClick={this.handleFriendRequest}>
-                      {this.props.friend_ids.indexOf(user.id) > -1 ? "Friends" : "Add Friend"}
-                  </button>
+                  <FriendButton otherUser={user}/>
                 </li>
               )})}
           </ul>
@@ -56,11 +59,11 @@ const mapStateToProps = ({ entities: { users }, session, ui}, ownProps) => {
   const currentUser = users[session.id];
   const regexp = new RegExp(ui.search, 'gi');
   const matches = [];
+  // debugger
   Object.values(users).forEach(user => {
     if (user.id === currentUser.id) {
       return;
     }
-    debugger
     if (user.fname.match(regexp) !== null) {
       matches.push(user);
     }
@@ -75,7 +78,7 @@ const mapStateToProps = ({ entities: { users }, session, ui}, ownProps) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  sendFriendRequest: friendship => dispatch(sendFriendRequest(friendship))
+  fetchUsers: () => dispatch(fetchUsers())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchResults);

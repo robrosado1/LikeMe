@@ -39,10 +39,6 @@ export const removeFriend = friendshipId => {
 };
 
 const acknowledgeFriendRequest = request => {
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
   return ({
     type: ACKNOWLEDGE_FRIEND_REQUEST,
     request
@@ -82,10 +78,6 @@ export const fetchUsers = () => dispatch => {
 };
 
 export const sendFriendRequest = friendship => dispatch => {
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
   FriendshipAPIUtil.sendFriendRequest(friendship).then( request => {
     return dispatch(acknowledgeFriendRequest(request));
   }, err => {
@@ -97,6 +89,15 @@ export const acceptFriendRequest = friendship => dispatch => {
 
   FriendshipAPIUtil.acceptFriendRequest(friendship).then( request => {
     return dispatch(acceptFriendshipRequest(request));
+  }, err => {
+    return dispatch(receiveErrors(err.responseJSON));
+  });
+};
+
+export const deleteFriend = friendship => dispatch => {
+
+  FriendshipAPIUtil.deleteFriend(friendship).then( friendshipId => {
+    return dispatch(removeFriend(friendshipId));
   }, err => {
     return dispatch(receiveErrors(err.responseJSON));
   });
