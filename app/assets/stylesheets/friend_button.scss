@@ -28,3 +28,14 @@
   border-color: #4267b2;
   color: #fff;
 }
+
+.accept:hover {
+  background-color: #365899;
+  border-color: #365899;
+}
+
+.accept:active {
+  background-color: #29487d;
+  border-color: #29487d;
+  transform: scale(.98);
+}

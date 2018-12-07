@@ -11,13 +11,8 @@ class FriendButton extends React.Component {
   constructor(props) {
     super(props);
     this.handleFriending = this.handleFriending.bind(this);
-    this.determineFriendStatus = this.determineFriendStatus.bind(this);
-    this.currentUser = this.props.currentUser;
+    // this.determineFriendStatus = this.determineFriendStatus.bind(this);
     this.otherUser = this.props.otherUser;
-    this.state = {
-      button: "Add Friend",
-      accept: false
-    };
   }
 
 
@@ -25,93 +20,62 @@ class FriendButton extends React.Component {
     e.preventDefault();
 
     if (e.currentTarget.innerHTML === "Add Friend") {
-      debugger
       this.props.sendFriendRequest({
-        user1_id: this.currentUser.id,
+        user1_id: this.props.currentUser.id,
         user2_id: this.otherUser.id
       });
     } else if (e.currentTarget.innerHTML === "Accept Friend Request") {
       e.currentTarget.classList.remove("accept");
       this.props.acceptFriendRequest({
         user1_id: this.otherUser.id,
-        user2_id: this.currentUser.id,
+        user2_id: this.props.currentUser.id,
         pending: false
       });
-    } else if (e.currentTarget.innerHTML === "Friend Request Sent") {
-
     } else {
-      debugger
-      // this.props.deleteFriend({
-      // });
     }
-    // debugger
-    this.determineFriendStatus(this.currentUser, this.otherUser);
-    // debugger
+    // this.determineFriendStatus(this.props.currentUser, this.otherUser);
+    //
+    // this.setState({
+    //   state: this.state
+    // });
   }
 
-  determineFriendStatus(currUser, otherUser) {
-    debugger
-    if (currUser.friend_ids.includes(otherUser.id)) {
-      this.setState({
-        button: "Friends"
-      });
-    } else if (currUser.sent.includes(otherUser.id)) {
-      this.setState({
-        button: "Friend Request Sent"
-      });
-    } else if (currUser.received.includes(otherUser.id)) {
-      this.setState({
-        button: "Accept Friend Request"
-      });
-    } else {
-      this.setState({
-        button: "Add Friend"
-      });
-    }
-  }
-
-  // e.currentTarget.classList.add("accept");
   componentDidMount() {
-    this.determineFriendStatus(this.currentUser, this.otherUser);
+    const button = document.getElementById(`fb-${this.props.otherUser.id}`)
+    if (button.innerHTML === "Accept Friend Request") {
+      button.classList.add("accept");
+    }
   }
-
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   debugger
-  //   if (nextProps.currentUser.friend_ids.length !== this.props.currentUser.friend_ids.length) {
-  //     return true;
-  //   } else if (nextProps.currentUser.sent.length !== this.props.currentUser.sent.length) {
-  //     return true;
-  //   } else if (nextProps.currentUser.received.length !== this.props.currentUser.received.length) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // }
-
-  // componentDidUpdate(prevProps) {
-  //   if (prevProps.currentUser) {
-  //   }
-  // }
 
   render() {
-    debugger
-    if (this.currentUser.id === this.otherUser.id) {
+    if (this.props.currentUser.id === this.otherUser.id) {
       return "";
     }
+    let friendStatus;
+    if (this.props.currentUser.friend_ids.includes(this.otherUser.id)) {
+      friendStatus = "Friends";
+    } else if (this.props.currentUser.sent.includes(this.otherUser.id)) {
+      friendStatus = "Friend Request Sent";
+    } else if (this.props.currentUser.received.includes(this.otherUser.id)) {
+      friendStatus = "Accept Friend Request";
+    } else {
+      friendStatus = "Add Friend";
+    }
     return (
-      <button id={`fb-${this.otherUser.id}`} type="button"
-        className={`friend-button`}
-        onClick={this.handleFriending}>
-        {this.state.button}
-      </button>
+      <button id={`fb-${this.props.otherUser.id}`} type="button" className="friend-button"
+        onClick={this.handleFriending}>{`${friendStatus}`}</button>
     );
   }
 }
 
 const mapStateToProps = ({entities: { users }, session}) => {
+  let currentUser = users[session.id];
   return ({
     users,
-    currentUser: users[session.id]
+    currentUser,
+    sent: currentUser.sent,
+    received: currentUser.received,
+    friends: currentUser.friend_ids
   });
 };
 

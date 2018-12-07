@@ -8,20 +8,6 @@ class SearchResults extends React.Component {
   constructor(props) {
     super(props);
     this.currentUserId = this.props.currentUserId;
-    this.handleFriendRequest = this.handleFriendRequest.bind(this);
-  }
-
-  handleFriendRequest(e) {
-    debugger
-    const friendee = e.currentTarget.id;
-    this.props.sendFriendRequest({
-      user1_id: this.currentUserId,
-      user2_id: friendee
-    });
-  }
-
-  componentDidMount() {
-    // this.props.fetchUsers();
   }
 
   render() {
@@ -59,7 +45,6 @@ const mapStateToProps = ({ entities: { users }, session, ui}, ownProps) => {
   const currentUser = users[session.id];
   const regexp = new RegExp(ui.search, 'gi');
   const matches = [];
-  // debugger
   Object.values(users).forEach(user => {
     if (user.id === currentUser.id) {
       return;
@@ -78,7 +63,6 @@ const mapStateToProps = ({ entities: { users }, session, ui}, ownProps) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  fetchUsers: () => dispatch(fetchUsers())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchResults);
