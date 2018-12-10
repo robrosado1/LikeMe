@@ -13,4 +13,6 @@ class Post < ApplicationRecord
 
   has_many :comments, as: :commentable
 
+  has_one_attached :photo
+
 end

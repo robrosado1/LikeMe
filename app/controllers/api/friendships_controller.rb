@@ -1,4 +1,5 @@
 class Api::FriendshipsController < ApplicationController
+  before_action :ensure_logged_in
 
   def create
     @friendship = Friendship.new(friendship_params)

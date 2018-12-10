@@ -1,4 +1,5 @@
 class Api::PostsController < ApplicationController
+  before_action :ensure_logged_in
 
   def create
     @post = Post.new(post_params)
