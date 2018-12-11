@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import CommentForm from './comments/comment_form'
+import CommentForm from './comments/comment_form';
 
 class PostList extends React.Component {
   constructor(props) {
@@ -9,11 +9,15 @@ class PostList extends React.Component {
     this.state = {
       author_id: this.currentUser.id,
       body: '',
-      receiver_id: Number(this.props.history.location.pathname.split("/")[2])
+      receiver_id: Number(this.props.history.location.pathname.split("/")[2]),
+      photo: "",
+      photoUrl: "",
+      file: []
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleEnter = this.handleEnter.bind(this);
     this.postToWho = this.postToWho.bind(this);
+    this.handleFile = this.handleFile.bind(this);
   }
 
   update(field) {
@@ -28,13 +32,39 @@ class PostList extends React.Component {
     this.props.fetchPosts();
   }
 
+  handleFile(e) {
+    const reader = new FileReader();
+    const file = e.currentTarget.files[0];
+    this.setState({ file: e.currentTarget });
+    reader.onloadend = () => {
+      this.setState({
+        photoUrl: reader.result,
+        photo: file
+      });
+    }
+    if (file) {
+      reader.readAsDataURL(file);
+    } else {
+      this.setState({ photo: "", photoUrl: "" });
+    }
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     if (this.state.body.length < 1) {
       return;
     }
-    this.props.createPost(this.state);
-    this.setState({ body: '' });
+    const formData = new FormData();
+    formData.append('post[body]', this.state.body);
+    formData.append('post[author_id]', this.state.author_id);
+    formData.append('post[receiver_id]', this.state.receiver_id);
+
+    if (this.state.photo) {
+      formData.append('post[photo]', this.state.photo);
+    }
+    this.props.createPost(formData);
+
+    this.setState({ body: "", photoUrl: "", photo: "" });
   }
 
   handleEnter(e) {
@@ -56,6 +86,9 @@ class PostList extends React.Component {
     if (this.state.body.length > 0) {
       empty = false;
     }
+
+    const preview = this.state.photoUrl ? <img src={this.state.photoUrl} /> : null;
+
     return (
       <div className="newsfeed-container">
         <div className="post-form-container">
@@ -63,6 +96,8 @@ class PostList extends React.Component {
             <label><i className="fas fa-pencil-alt"></i> Make Post</label>
             <textarea placeholder={this.postToWho()}
               onChange={this.update('body')} value={this.state.body} onKeyDown={this.handleEnter}></textarea>
+            {preview}
+            <input type="file" onChange={this.handleFile} />
             <input disabled={empty} type="submit" value="Share" />
           </form>
         </div>
@@ -80,6 +115,7 @@ class PostList extends React.Component {
                       {this.props.users[post.author_id].fname} {this.props.users[post.author_id].lname}
                     </Link>
                     <p className="post-body">{post.body}</p>
+                    <img src={post.photoUrl} />
                   </div>
                   <div className="bottom-bar">
                     <div className="comment-block">
