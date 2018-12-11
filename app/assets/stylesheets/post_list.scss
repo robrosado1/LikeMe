@@ -18,7 +18,7 @@
   margin-right: 5px;
 }
 
-.post-form label {
+.make-post {
   color: #4b4f56;
   font-size: 12px;
   background-color: #f5f6f7;
@@ -85,10 +85,9 @@
 }
 
 .post-window {
-  margin-top: 12px;
-  margin-right: 12px;
-  margin-left: 12px;
-  border-bottom: 1px solid #dddfe2;
+  padding-top: 12px;
+  padding-right: 12px;
+  padding-left: 12px;
   border-radius: 3px 3px 0 0;
 }
 
@@ -106,6 +105,8 @@
 
 .bottom-bar {
   background-color: #fff;
+  border-top: 1px solid #dddfe2;
+  margin: 0 12px;
 }
 
 .comment-block {

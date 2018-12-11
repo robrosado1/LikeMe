@@ -8,16 +8,17 @@ class PostList extends React.Component {
     this.currentUser = this.props.currentUser;
     this.state = {
       author_id: this.currentUser.id,
-      body: '',
+      body: "",
       receiver_id: Number(this.props.history.location.pathname.split("/")[2]),
       photo: "",
       photoUrl: "",
-      file: []
+      imagePath: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleEnter = this.handleEnter.bind(this);
     this.postToWho = this.postToWho.bind(this);
     this.handleFile = this.handleFile.bind(this);
+    this.removePic = this.removePic.bind(this);
   }
 
   update(field) {
@@ -32,20 +33,27 @@ class PostList extends React.Component {
     this.props.fetchPosts();
   }
 
+  removePic(e) {
+    const input = document.getElementById("photo-input");
+    input.value = "";
+    this.setState({ photo: "", photoUrl: "", imagePath: "" });
+  }
+
   handleFile(e) {
     const reader = new FileReader();
-    const file = e.currentTarget.files[0];
-    this.setState({ file: e.currentTarget });
+    const fileList = e.currentTarget;
+    const file = fileList.files[0];
     reader.onloadend = () => {
       this.setState({
         photoUrl: reader.result,
-        photo: file
+        photo: file,
+        imagePath: fileList.value
       });
     }
     if (file) {
       reader.readAsDataURL(file);
     } else {
-      this.setState({ photo: "", photoUrl: "" });
+      this.setState({ photo: "", photoUrl: "", imagePath: "" });
     }
   }
 
@@ -64,7 +72,7 @@ class PostList extends React.Component {
     }
     this.props.createPost(formData);
 
-    this.setState({ body: "", photoUrl: "", photo: "" });
+    this.setState({ body: "", photoUrl: "", photo: "", imagePath: "" });
   }
 
   handleEnter(e) {
@@ -87,17 +95,28 @@ class PostList extends React.Component {
       empty = false;
     }
 
-    const preview = this.state.photoUrl ? <img src={this.state.photoUrl} /> : null;
-
+    const preview = this.state.photoUrl ? <img className="photo-preview"
+      onClick={this.removePic} src={this.state.photoUrl} /> : null;
+    const pick = () => (
+      <span className="upload-label">
+        <i className="far fa-image image-icon"></i> Photo/Video
+      </span>
+    );
     return (
       <div className="newsfeed-container">
         <div className="post-form-container">
           <form className="post-form" onSubmit={this.handleSubmit}>
-            <label><i className="fas fa-pencil-alt"></i> Make Post</label>
+            <label className="make-post">
+              <i className="fas fa-pencil-alt"></i> Make Post
+            </label>
             <textarea placeholder={this.postToWho()}
-              onChange={this.update('body')} value={this.state.body} onKeyDown={this.handleEnter}></textarea>
+              onChange={this.update("body")} value={this.state.body}
+              onKeyDown={this.handleEnter}></textarea>
             {preview}
-            <input type="file" onChange={this.handleFile} />
+            <div className="photo-label-border"></div>
+            <input type="file" name="photo-input" id="photo-input" className="photo-input"
+              onChange={this.handleFile} />
+            <label className="photo-input-label" htmlFor="photo-input">{pick()}</label>
             <input disabled={empty} type="submit" value="Share" />
           </form>
         </div>
@@ -108,6 +127,8 @@ class PostList extends React.Component {
               if (post.receiver_id !== this.state.receiver_id) {
                 return "";
               }
+              const photo = post.photoUrl ? <img className="post-photo"
+                src={post.photoUrl} /> : null;
               return (
                 <li key={post.id} className="newsfeed-post">
                   <div className="post-window">
@@ -115,8 +136,8 @@ class PostList extends React.Component {
                       {this.props.users[post.author_id].fname} {this.props.users[post.author_id].lname}
                     </Link>
                     <p className="post-body">{post.body}</p>
-                    <img src={post.photoUrl} />
                   </div>
+                  {photo}
                   <div className="bottom-bar">
                     <div className="comment-block">
                       <button className="comment-button">
@@ -125,7 +146,7 @@ class PostList extends React.Component {
                       </button>
                     </div>
                   </div>
-                  <CommentForm type={'Post'} postId={post.id}/>
+                  <CommentForm type={"Post"} postId={post.id}/>
                 </li>
               );
             })}

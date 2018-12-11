@@ -1,0 +1,58 @@
+.photo-input {
+  width: 0.1px;
+  height: 0.1px;
+  overflow: hidden;
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.photo-input-label {
+  height: 32px;
+  text-overflow: ellipsis;
+  background-color: #f5f6f7;
+  border: 1px solid #f5f6f7;
+  border-radius: 16px;
+  box-sizing: border-box;
+  margin: 8px auto;
+  padding: 0 10px;
+}
+
+.upload-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #4b4f56;
+  vertical-align: sub;
+  line-height: 32px;
+}
+
+.image-icon {
+  font-size: 24px;
+  padding-right: 4px;
+  color: lightseagreen;
+}
+
+.photo-input-label:hover {
+  background-color: #ebedf0;
+  cursor: pointer;
+}
+
+.photo-preview {
+  width: 100px;
+  height: 100px;
+  padding: 12px;
+  padding-top: 0;
+}
+
+.photo-preview:hover {
+  filter: brightness(50%);
+}
+
+.photo-label-border {
+  border-bottom: 1px solid #dddfe2;
+  margin: 0 12px;
+}
+
+.post-photo {
+  border-top: 1px solid #dddfe2;
+}
