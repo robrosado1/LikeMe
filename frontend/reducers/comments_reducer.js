@@ -3,7 +3,7 @@ import {
   RECEIVE_ALL_COMMENTS,
   REMOVE_COMMENT
 } from '../actions/comment_actions';
-import {RECEIVE_ALL_POSTS} from '../actions/post_actions';
+import { RECEIVE_ALL_POSTS } from '../actions/post_actions';
 import merge from 'lodash/merge';
 
 const CommentsReducer = (oldState = {}, action) => {
