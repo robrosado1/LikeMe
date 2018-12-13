@@ -31,6 +31,10 @@ reality = {password: 'continuum', email: 'fabric@timeandspace.rip', fname: 'Real
   lname: 'Bender', birthday: 29, birthmonth: 'February', birthyear: 1900, gender: 'Male'}
 meerkat = {password: 'soybeansarsaparilla', email: 'healthy@living.well', fname: 'Meerkat',
   lname: 'Oswali', birthday: 11, birthmonth: 'June', birthyear: 1960, gender: 'Female'}
+terry = {password: 'tripletee', email: 'doubletee@name.com', fname: 'Terry',
+  lname: 'Tarrington', birthday: 1, birthmonth: 'January', birthyear: 1985, gender: 'Female'}
+holy = {password: 'holycow', email: 'holymoly@cow.wow', fname: 'Holly',
+  lname: 'Molly', birthday: 13, birthmonth: 'April', birthyear: 1978, gender: 'Female'}
 
 
 User.create!(test_user)
@@ -43,3 +47,10 @@ User.create!(math)
 User.create!(dj)
 User.create!(reality)
 User.create!(meerkat)
+User.create!(terry)
+User.create!(holy)
+
+User.all.each do |user|
+  user.profile_pic.attach(io: File.open('/Users/rob/Desktop/LikeMe/app/assets/images/default_profile_pic.jpeg'),
+  filename: 'default_profile_pic.jpeg')
+end

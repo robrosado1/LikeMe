@@ -20,3 +20,7 @@ end
 json.received do
   json.array! user.received_waiting
 end
+
+if user.profile_pic.attached? 
+  json.profile_pic_url url_for(user.profile_pic)
+end

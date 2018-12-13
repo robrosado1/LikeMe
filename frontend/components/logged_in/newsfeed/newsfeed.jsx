@@ -61,7 +61,7 @@ const NewsFeed = (props) => {
             <p>Hello, and welcome to LikeMe: a Fullstack website made by me,
               Robinson Rosado! Thank you very much for the visit and I hope you
               enjoy it as you explore. I made this site using a Rails backend
-              for creating, storing, and querying for relavent information. The
+              for creating, storing, and querying for relevant information. The
               frontend was made using a combination of Javascript, React and
               Redux for rendering and storing user-specific information for
               quick and easy access. If you would like to learn more about me or

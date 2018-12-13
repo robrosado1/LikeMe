@@ -29,7 +29,6 @@ class Navbar extends React.Component {
   }
 
   render() {
-
     return (
       <div className="navbar">
         <div className="navbar-group">
@@ -47,7 +46,10 @@ class Navbar extends React.Component {
           </div>
           <div className="navbar-navigation">
             <div className="navbar-links">
-              <Link to={`/users/${this.props.currentUser.id}/wall`}>{this.props.currentUser.fname}</Link>
+              <Link className="navbar-wall-link" to={`/users/${this.props.currentUser.id}/wall`}>
+                <img className="navbar-pic" src={this.props.currentUser.profile_pic_url} />
+                {this.props.currentUser.fname}
+              </Link>
               <Link to={`/users/${this.props.currentUser.id}/newsfeed`}>Home</Link>
               <Link to={`/users/search/`}>Find Friends</Link>
             </div>

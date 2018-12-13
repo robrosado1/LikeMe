@@ -39,6 +39,8 @@ class User < ApplicationRecord
     through: :received_requests,
     source: :requestor
 
+  has_one_attached :profile_pic
+
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email);

@@ -71,6 +71,11 @@
   align-items: center;
 }
 
+.navbar-links {
+  display: flex;
+  flex-direction: row;
+}
+
 .navbar-buttons button, .navbar-buttons a, .navbar-links a {
   color: #fff;
   font-size: 12px;
@@ -91,11 +96,31 @@
   color: #fff;
 }
 .navbar-links {
-  height: 21px;
+  height: 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.navbar-pic {
+  margin-right: 5px;
+  border: 1px solid transparent;
+  border-radius: 11px;
+  height: 24px;
+  width: 24px;
+  box-sizing: border-box;
+}
+
+.navbar-wall-link {
+  padding: 0;
+  display: flex;
 }
 
 .navbar-links a {
-  padding: 3.5px 12px;
+  padding: 0 12px;
+  align-items: center;
+  height: 24px;
+  line-height: 24px;
 }
 
 .navbar-links a:hover {
