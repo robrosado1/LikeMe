@@ -10,6 +10,7 @@ const NewsFeed = (props) => {
           <ul className="user-links">
             <li className="left-list-element">
               <Link className="wall-link" to={`/users/${props.currentUser.id}/wall`}>
+                <img className="left-link-pic" src={props.currentUser.profile_pic_url} />
                 <span>{props.currentUser.fname} {props.currentUser.lname}</span>
               </Link>
             </li>
