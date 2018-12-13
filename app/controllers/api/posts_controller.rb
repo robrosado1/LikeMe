@@ -16,12 +16,12 @@ class Api::PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.with_attached_photo.find(params[:id])
     render :show
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.with_attached_photo.all
     @users = User.all
     @comments = Comment.all
     render :index
