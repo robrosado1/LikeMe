@@ -26,6 +26,9 @@ class Headboard extends React.Component {
     return (
       <div className="headboard">
         <div className="cover-photo">
+          <div className="headboard-pic-border">
+            <img className="headboard-pic" src={pageOwner.profile_pic_url} />
+          </div>
           <h3 className="headboard-name">
             <Link to={`/users/${pageOwner.id}/wall`}>
               {`${pageOwner.fname} ${pageOwner.lname}`}
