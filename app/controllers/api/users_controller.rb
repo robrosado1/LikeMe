@@ -6,7 +6,6 @@ class Api::UsersController < ApplicationController
     @user.profile_pic.attach(
       io: File.open('/Users/rob/Desktop/LikeMe/app/assets/images/default_profile_pic.jpeg'),
       filename: 'default_profile_pic.jpeg')
-    end
 
     if @user.save
       login!(@user)

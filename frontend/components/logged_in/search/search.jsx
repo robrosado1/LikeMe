@@ -10,6 +10,9 @@ class SearchResults extends React.Component {
     this.currentUserId = this.props.currentUserId;
   }
 
+  componentDidMount() {
+  }
+
   render() {
     return (
       <div className="search-page">
@@ -24,9 +27,14 @@ class SearchResults extends React.Component {
             {this.props.matches.map(user => {
               return (
                 <li className="person" key={`link-${user.id}`}>
-                  <Link to={`/users/${user.id}/wall`}>
-                    <span className="person-name">{user.fname} {user.lname}</span>
-                  </Link>
+                  <div className="search-links">
+                    <Link to={`/users/${user.id}/wall`}>
+                      <img className="search-list-pic" src={user.profile_pic_url} />
+                    </Link>
+                    <Link className="person-name" to={`/users/${user.id}/wall`}>
+                      {user.fname} {user.lname}
+                    </Link>
+                  </div>
                   <FriendButton otherUser={user}/>
                 </li>
               )})}
@@ -63,6 +71,7 @@ const mapStateToProps = ({ entities: { users }, session, ui}, ownProps) => {
 }
 
 const mapDispatchToProps = dispatch => ({
+  fetchUsers: () => dispatch(fetchUsers())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchResults);
