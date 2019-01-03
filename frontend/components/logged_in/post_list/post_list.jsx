@@ -95,7 +95,7 @@ class PostList extends React.Component {
       empty = false;
     }
 
-    const preview = this.state.photoUrl ? <img className="photo-preview"
+    let preview = this.state.photoUrl ? <img className="photo-preview"
       onClick={this.removePic} src={this.state.photoUrl} /> : null;
     const pick = () => (
       <span className="upload-label">

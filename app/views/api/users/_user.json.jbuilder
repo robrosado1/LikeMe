@@ -21,6 +21,8 @@ json.received do
   json.array! user.received_waiting
 end
 
-if user.profile_pic.attached? 
+if user.profile_pic.attached?
   json.profile_pic_url url_for(user.profile_pic)
+else
+  json.profile_pic_url 'https://s3.amazonaws.com/lm-photoupload-prod/default_profile_pic.jpeg'
 end
