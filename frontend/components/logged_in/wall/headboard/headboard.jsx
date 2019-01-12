@@ -61,6 +61,3 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Headboard);
-
-
-// <span className="headboard-nav">More</span>

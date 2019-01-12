@@ -111,7 +111,7 @@ class User < ApplicationRecord
       self.id,
       self.id,
       pending
-    ])
+    ]).uniq
   end
 
 end

@@ -17,8 +17,9 @@ class Everything extends React.Component {
       <Switch>
         <Route path="/users/search" component={SearchResults} />
         <Route path="/users" component={Wall}/>
-      </Switch>
         <Route exact path="/users/:userId/newsfeed" component={NewsFeedContainer}/>
+      </Switch>
+        // <Route exact path="/users/:userId/newsfeed" component={NewsFeedContainer}/>
       </>
   );
   }

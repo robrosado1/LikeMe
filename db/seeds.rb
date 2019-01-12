@@ -49,8 +49,3 @@ User.create!(reality)
 User.create!(meerkat)
 User.create!(terry)
 User.create!(holy)
-
-User.all.each do |user|
-  user.profile_pic.attach(io: File.open('/Users/rob/Desktop/LikeMe/app/assets/images/default_profile_pic.jpeg'),
-  filename: 'default_profile_pic.jpeg')
-end
