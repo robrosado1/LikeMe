@@ -14,11 +14,9 @@ class Everything extends React.Component {
     return (
       <>
       <NavbarContainer/>
-      <Switch>
-        <Route path="/users/search" component={SearchResults} />
-        <Route path="/users" component={Wall}/>
-        <Route exact path="/users/:userId/newsfeed" component={NewsFeedContainer}/>
-      </Switch>
+      <Route exact path="/users/search" component={SearchResults} />
+      <Route exact path="/users/:userId/wall" component={Wall}/>
+      <Route exact path="/users/:userId/newsfeed" component={NewsFeedContainer}/>
       </>
   );
   }
