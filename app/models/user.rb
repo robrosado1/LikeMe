@@ -86,19 +86,6 @@ class User < ApplicationRecord
     end
   end
 
-  def friendships
-    Friendship.find_by_sql([
-      'SELECT *
-      FROM friendships
-      WHERE (friendships.user1_id = ? OR friendships.user2_id = ?) AND 
-            (friendships.user1_id = ? OR friendships.user2_id = ?)',
-      206,
-      206,
-      207,
-      207
-    ])
-  end
-
   private
 
   def ensure_session_token
@@ -111,7 +98,7 @@ class User < ApplicationRecord
 
   def friend_status(pending)
     Friendship.find_by_sql([
-      'SELECT DISTINCT
+      'SELECT
         *
       FROM
         friendships
