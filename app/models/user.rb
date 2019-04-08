@@ -98,16 +98,17 @@ class User < ApplicationRecord
 
   def friend_status(pending)
     Friendship.find_by_sql([
-      'SELECT
-        *
+      'SELECT (
+        CASE user1_id
+          WHEN ? 
+          THEN user2_id
+          ELSE user1_id
+        END
+      ) AS friend_id
       FROM
         friendships
-      JOIN
-        users AS U1 ON U1.id = friendships.user1_id
-      JOIN
-        users AS U2 ON U2.id = friendships.user2_id
       WHERE
-        (U1.id = ? OR U2.id = ?) AND friendships.pending = ?',
+        ? IN (user1_id, user2_id) AND pending = ?',
       self.id,
       self.id,
       pending
