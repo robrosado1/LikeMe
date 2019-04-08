@@ -63,15 +63,11 @@ class User < ApplicationRecord
   end
 
   def friends
-    friend_status(false).map do |f|
-      f.user1_id == self.id ? f.user2_id : f.user1_id
-    end
+    friend_status(false)
   end
 
   def all_pending
-    friend_status(true).map do |f|
-      f.user2_id if f.user1_id == self.id
-    end
+    friend_status(true)
   end
 
   def sent_pending
@@ -112,7 +108,7 @@ class User < ApplicationRecord
       self.id,
       self.id,
       pending
-    ])
+    ]).map { |f| f.friend_id }
   end
 
 end
