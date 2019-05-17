@@ -1,6 +1,6 @@
 import React from 'react';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import Splash from './splash/splash';
+import Splash from './logged_out/splash';
 import Everything from './logged_in/everything';
 
 const App = () => (

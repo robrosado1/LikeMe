@@ -1,6 +1,6 @@
 import React from 'react';
-import { withRouter, Redirect } from 'react-router-dom';
-import { monthOptions, dayOptions, yearOptions, months } from '../../util/constants.jsx';
+import { withRouter } from 'react-router-dom';
+import { monthOptions, dayOptions, yearOptions } from '../../../util/constants';
 
 class SignupForm extends React.Component {
   constructor(props) {

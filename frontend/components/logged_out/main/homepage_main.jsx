@@ -1,6 +1,6 @@
 import React from 'react';
-import SignupFormContainer from '../session_form/signup_form_container';
-import LoginpageFormContainer from '../loginpage/loginpage_form_container';
+import SignupFormContainer from '../session_forms/signup_form_container';
+import LoginpageFormContainer from '../session_forms/loginpage_form_container';
 
 const HomePageLeft = () => {
   return (
