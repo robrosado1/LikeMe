@@ -1,4 +1,6 @@
 import React from 'react';
+import SignupFormContainer from '../session_form/signup_form_container';
+import LoginpageFormContainer from '../loginpage/loginpage_form_container';
 
 const HomePageLeft = () => {
   return (
@@ -19,4 +21,31 @@ const HomePageLeft = () => {
   )
 }
 
-export default HomePageLeft;
+const HomePageMain = (props) => {
+  let homePageLeft = null;
+  let signupForm = null;
+  let loginForm = null; 
+  switch (props.location.pathname) {
+    case "/":
+      homePageLeft = <HomePageLeft />;
+      signupForm = <SignupFormContainer />;
+      break;
+    case "/login":
+      loginForm = <LoginpageFormContainer />;
+      break;
+    case "/signup": 
+      signupForm = <SignupFormContainer />;
+      break;
+    default: 
+      null;
+  }
+  return (
+    <div className="homepage-content-box">
+      {homePageLeft}
+      {signupForm}
+      {loginForm}
+    </div>
+  )
+}
+
+export default HomePageMain;
