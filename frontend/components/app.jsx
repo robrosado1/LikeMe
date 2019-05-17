@@ -1,14 +1,14 @@
 import React from 'react';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import Splash from './logged_out/splash';
-import Everything from './logged_in/everything';
+import LoggedOut from './logged_out/logged_out';
+import LoggedIn from './logged_in/logged_in';
 
 const App = () => (
   <>
-    <ProtectedRoute path="/users" component={Everything}/>
-    <AuthRoute exact path="/" component={Splash} />
-    <AuthRoute exact path="/signup" component={Splash} />
-    <AuthRoute exact path="/login" component={Splash} />
+    <ProtectedRoute path="/users" component={LoggedIn}/>
+    <AuthRoute exact path="/" component={LoggedOut} />
+    <AuthRoute exact path="/signup" component={LoggedOut} />
+    <AuthRoute exact path="/login" component={LoggedOut} />
   </>
 );
 

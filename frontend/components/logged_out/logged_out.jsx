@@ -3,7 +3,7 @@ import { Route, withRouter } from 'react-router-dom'
 import TopbarContainer from './header/topbar_container';
 import HomePageMain from './main/homepage_main';
 
-const Splash = () => {
+const LoggedOut = () => {
   return(
     <>
       <header className="header">
@@ -16,4 +16,4 @@ const Splash = () => {
   );
 };
 
-export default withRouter(Splash);
+export default withRouter(LoggedOut);
