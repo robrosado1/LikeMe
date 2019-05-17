@@ -6,7 +6,9 @@ import Everything from './logged_in/everything';
 const App = () => (
   <>
     <ProtectedRoute path="/users" component={Everything}/>
-    <AuthRoute path="/" component={Splash} />
+    <AuthRoute exact path="/" component={Splash} />
+    <AuthRoute exact path="/signup" component={Splash} />
+    <AuthRoute exact path="/login" component={Splash} />
   </>
 );
 
