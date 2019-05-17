@@ -5,8 +5,8 @@ import Everything from './logged_in/everything';
 
 const App = () => (
   <>
-    <AuthRoute path="/" component={Splash} />
     <ProtectedRoute path="/users" component={Everything}/>
+    <AuthRoute path="/" component={Splash} />
   </>
 );
 
